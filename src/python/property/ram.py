@@ -22,7 +22,7 @@ class RamSys(Property):
     def get_score(self, label):
         for key in sorted(self.___score.keys(), reverse=True):
             if label > key:
-                return self.__score[label]
+                return self.__score[int(label)]
         return self.___score[0]
 
     def get_name(self):

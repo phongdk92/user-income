@@ -17,6 +17,11 @@ class Device(Property):
         super().__init__()
         self.__name = name
         self.__data_path = os.path.join(os.getcwd(), "external_data", "device")
+        print(self.__data_path)
+        if not os.path.exists(self.__data_path):
+            print(self.__data_path)
+            self.__data_path = os.path.join("../../", "external_data", "device")
+            print(self.__data_path)
         self.__score_os = {-1: 0,
                            # 'unknown': 0,
                            'ios': 4,
@@ -94,8 +99,9 @@ class Device(Property):
             # if cpu_price and ram_price and screen_price:  # get all price of cpu, ram and screen
             #     return cpu_price + ram_price + screen_price
             # need a map from price to score
+            return self.__score_os[-1]
         # check device information
-        return None
+        return self.__score_os[-1]
 
     def get_intel_processor_score(self, CPU_model):
         for processor in list(self.__score_intel_processor.keys()):

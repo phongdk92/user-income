@@ -20,7 +20,7 @@ class Airline(Property):
         self.__threshold = 15
 
     def get_score(self, label):
-        return self.__score[label]
+        return self.__score[int(label)]
 
     def get_name(self):
         return self.__name

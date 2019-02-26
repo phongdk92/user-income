@@ -20,7 +20,7 @@ class Hotel(Property):
         self.__threshold = 10       # number of urls containing Hotel info
 
     def get_score(self, label):
-        return self.__score[label]
+        return self.__score[int(label)]
 
     def get_name(self):
         return self.__name

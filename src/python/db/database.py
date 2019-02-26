@@ -38,7 +38,6 @@ def collect_user_demography_info(filename, from_date, end_date):
     '''
 
     query = "SELECT " \
-            "event_date, " \
             "cityHash64(user_id) as uid, " \
             "gender, " \
             "age " \
@@ -48,7 +47,7 @@ def collect_user_demography_info(filename, from_date, end_date):
             "event_date = '{}' " \
             "".format(end_date)
     output = get_data_from_server(CONNECT_TO_BROWSER_STAT, query)
-    columns = ['event_date', 'user_id', 'gender', 'age']
+    columns = ['user_id', 'gender', 'age']
     export_to_csv(filename, output, columns)
     del output
     gc.collect()
@@ -84,7 +83,7 @@ def collect_user_url_with_filter_info(filename, from_date, end_date, filter_urls
 
 
 def collect_user_hardware_info(filename, from_date, end_date):
-    print("PROCESS : HARDWARE_LOCATION")
+    print("PROCESS : HARDWARE")
     query = "SELECT " \
             "cityHash64(user_id) as uid, " \
             "os_name, " \
@@ -92,9 +91,7 @@ def collect_user_hardware_info(filename, from_date, end_date):
             "dictGetString('hw_class', 'name', toUInt64(hw_class)) as hw_class,  "\
             "dictGetString('cpu', 'vendor', toUInt64(cpu)) as cpu, " \
             "dictGetUInt16('screens', 'width', toUInt64(screen)) as screen_width, "\
-            "dictGetUInt16('screens', 'height', toUInt64(screen)) as screen_height, "\
-            "MAX(lat), " \
-            "MAX(lon) " \
+            "dictGetUInt16('screens', 'height', toUInt64(screen)) as screen_height "\
             "FROM " \
             "browser.metrics " \
             "WHERE " \
@@ -103,8 +100,29 @@ def collect_user_hardware_info(filename, from_date, end_date):
             "ORDER BY uid, os_name, sys_ram_mb, hw_class, cpu, screen_width, screen_height " \
             "".format(from_date, end_date)
     output = get_data_from_server(CONNECT_TO_AGGREGATOR, query)
-    columns = ['user_id', 'os_name', 'sys_ram_mb', 'hw_class', 'cpu', 'screen_width', 'screen_height', 'lat', 'lon']
+    columns = ['user_id', 'os_name', 'sys_ram_mb', 'hw_class', 'cpu', 'screen_width', 'screen_height']
     export_to_csv(filename, output, columns)
+    del output
+    gc.collect()
+
+
+def collect_user_location(filename, from_date, end_date):
+    print("PROCESS : LOCATION")
+    query = "SELECT " \
+            "cityHash64(user_id) as uid, " \
+            "lat, " \
+            "lon " \
+            "FROM " \
+            "browser.metrics " \
+            "WHERE " \
+            "event_date BETWEEN '{}' AND '{}' " \
+            "AND lat > 0 AND lon > 0 " \
+            "GROUP BY uid, lat, lon " \
+            "ORDER BY uid, lat, lon " \
+            "".format(from_date, end_date)
+    output = get_data_from_server(CONNECT_TO_AGGREGATOR, query)
+    columns = ['user_id', 'lat', 'lon']
+    export_to_csv(filename, output, columns)    # the file size is larger than 1 GB --> use DASK to distribute file
     del output
     gc.collect()
 
@@ -126,7 +144,8 @@ if __name__ == '__main__':
         os.makedirs(PATH)
 
     filename_demography = "demography_from_{}_to_{}.csv.gz".format(from_date, end_date)
-    filename_hardware_location = "hardware_lat_lon_from_{}_to_{}.csv.gz".format(from_date, end_date)
+    filename_hardware = "hardware_from_{}_to_{}.csv.gz".format(from_date, end_date)
+    filename_location = "location_from_{}_to_{}.csv.gz".format(from_date, end_date)
 
     filename_airline = "airline_from_{}_to_{}.csv.gz".format(from_date, end_date)
     filename_luxury = "luxury_from_{}_to_{}.csv.gz".format(from_date, end_date)
@@ -144,8 +163,9 @@ if __name__ == '__main__':
     FILTER_TOUR = os.path.join(EXTERNAL_PATH, "10957_Tour")
     FILTER_SHOPPING = os.path.join(EXTERNAL_PATH, "shopping")
 
-    #collect_user_demography_info(filename_demography, from_date, end_date)
-    collect_user_hardware_info(filename_hardware_location, from_date, end_date)
+    collect_user_demography_info(filename_demography, from_date, end_date)
+    # collect_user_hardware_info(filename_hardware, from_date, end_date)
+    #collect_user_location(filename_location, from_date, end_date)
 
     # for filename, filter_data in zip([filename_airline, filename_luxury, filename_booking_resort,
     #                                   filename_booking_hotel, filename_tour, filename_shopping],
