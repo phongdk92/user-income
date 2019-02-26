@@ -88,7 +88,7 @@ class AdministrativeArea:
         province_name = self.find_polygon(point, self.provinces, start=0)
         district_name = self.find_polygon(point, self.provinces[province_name], start=2)
         commune_name = self.find_polygon(point, self.provinces[province_name][district_name], start=2)
-        return province_name, district_name, commune_name
+        return f'{commune_name}_{district_name}_{province_name}'
 
 
 # class AdministrativeArea2:
