@@ -22,6 +22,7 @@ CONNECT_TO_BROWSER_STAT = "clickhouse-client --user=default --host=browser-stat1
 
 def get_data_from_server(connect_to_server, query, external=""):
     command = connect_to_server + "\"{}\" ".format(query) + external
+
     output = subprocess.check_output(command, shell=True)
     output = output.decode('utf-8', errors='ignore').split('\n')
     output = [x.split('\t') for x in output]
@@ -164,11 +165,11 @@ if __name__ == '__main__':
     FILTER_SHOPPING = os.path.join(EXTERNAL_PATH, "shopping")
 
     collect_user_demography_info(filename_demography, from_date, end_date)
-    # collect_user_hardware_info(filename_hardware, from_date, end_date)
-    #collect_user_location(filename_location, from_date, end_date)
+    collect_user_hardware_info(filename_hardware, from_date, end_date)
+    collect_user_location(filename_location, from_date, end_date)
 
-    # for filename, filter_data in zip([filename_airline, filename_luxury, filename_booking_resort,
-    #                                   filename_booking_hotel, filename_tour, filename_shopping],
-    #                                  [FILTER_AIRLINE, FILTER_LUXURY, FILTER_BOOKING_RESORT,
-    #                                   FILTER_BOOKING_HOTEL, FILTER_TOUR, FILTER_SHOPPING]):
-    #     collect_user_url_with_filter_info(filename, from_date, end_date, filter_data)
+    for filename, filter_data in zip([filename_airline, filename_luxury, filename_booking_resort,
+                                      filename_booking_hotel, filename_tour, filename_shopping],
+                                     [FILTER_AIRLINE, FILTER_LUXURY, FILTER_BOOKING_RESORT,
+                                      FILTER_BOOKING_HOTEL, FILTER_TOUR, FILTER_SHOPPING]):
+        collect_user_url_with_filter_info(filename, from_date, end_date, filter_data)
