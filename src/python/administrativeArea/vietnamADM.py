@@ -13,6 +13,7 @@ import os
 import pandas as pd
 import numpy as np
 import operator
+from sklearn.neighbors import KDTree
 from name_correction import normalize_name
 
 
@@ -32,20 +33,24 @@ class AdministrativeArea:
         self.commune_filename = os.path.join(path, 'VNM_adm3.shp')
 
         self.location_dict_filename = 'external_data/location/lat_lon_to_location.csv.gz'
+        if not os.path.exists(self.location_dict_filename):
+            self.location_dict_filename = '../../external_data/location/lat_lon_to_location.csv.gz'
         self.provinces = {}
         self.__read_province_shape_file()
         self.__read_district_shape_file()
         # self.__read_commune_shape_file()
-        self.__load_lat_lon_to_location()
+        # self.__load_lat_lon_to_location()
 
     def __load_lat_lon_to_location(self):
         '''
         load dictionary from (lat, lon) to location, this is to speed up when identifying location given (lat, lon)
         '''
         try:
-            print('Load dictionary')
+            print('Load dictionary from: {}'.format(self.location_dict_filename))
             df = pd.read_csv(self.location_dict_filename, compression='gzip',
                              dtype={'lat': float, 'lon': float, 'address': str})
+            # df['address'] = df['address'].apply(lambda x: x.replace('_', ", "))
+            # df.to_csv("external_data/location/lat_lon_to_location.csv.gz", compression='gzip', index=False)
             df.set_index(keys=['lat', 'lon'], inplace=True)
             self.lat_lon_to_location = df.to_dict('index')
         except:
@@ -127,7 +132,7 @@ class AdministrativeArea:
                 province_name = province_name[0]
             # _, commune_name = self.find_polygon(point, self.provinces[province_name][district_name], start=2)
             # return f'{commune_name}, {district_name}, {province_name}'
-            return normalize_name(f'{district_name}, {province_name}')
+            return normalize_name(f"{district_name}, {province_name}")
 
 
 class AdministrativeArea2:
@@ -202,6 +207,72 @@ class AdministrativeArea2:
         return 'Aboard'
 
 
+
+class AdministrativeArea_KDTree:
+    '''
+    Using KD-Tree to find K nearest neighbors
+    '''
+    def __init__(self, path, level=1):
+        '''
+        :param path:
+        :param level: 0: commune, 1: district, 2: province
+        '''
+        self.MIN_LAT = 8.33  # Vietnam Boundary
+        self.MAX_LAT = 23.400
+        self.MIN_LON = 102.074
+        self.MAX_LON = 110.001
+        self.NUM_SAMPLES_CHECK = 50
+        self.MAX_DISTANCE = 0.5
+        self.MIN_DISTANCE = 0
+        self.NUM_ROUND = 5
+        self.ABOARD = "aboard"
+
+        self.province_filename = os.path.join(path, 'VNM_adm1.shp')
+        self.district_filename = os.path.join(path, 'VNM_adm2.shp')
+        self.commune_filename = os.path.join(path, 'VNM_adm3.shp')
+        self.__read_commune_shape_file()
+
+    def __read_commune_shape_file(self):
+        sf = shapefile.Reader(self.commune_filename)
+        self.location = []
+        self.coordinate = []
+        for (record, area) in zip(sf.records(), sf.shapes()):
+            centroid_poly = Polygon(area.points).centroid.xy
+            # location_name = f'{record[8]}, {record[6]}, {record[4]}'
+            location_name = f'{record[6]}, {record[4]}'
+            self.coordinate.append([float(centroid_poly[0][0]), float(centroid_poly[1][0])])
+            self.location.append([location_name, Polygon(area.points)])
+        self.coordinate = np.array(self.coordinate)
+        self.KDTree = KDTree(self.coordinate, leaf_size=100)
+        # self.location_long_lat = sorted(self.location, key=operator.itemgetter(0, 1))  # sort by longitude, latitude
+        # self.location_lat_long = sorted(self.location, key=operator.itemgetter(1, 0))  # sort by latitude, longitude
+
+    def find_address(self, latitude, longitude):
+        latitude = round(latitude, self.NUM_ROUND)
+        longitude = round(longitude, self.NUM_ROUND)
+
+        if latitude > self.MAX_LAT or latitude < self.MIN_LAT or longitude > self.MAX_LON or longitude < self.MIN_LON:
+            return self.ABOARD
+        
+        point = Point(longitude, latitude)
+        dist, ind = self.KDTree.query([[longitude, latitude]], k=self.NUM_SAMPLES_CHECK, sort_results=True)
+
+        if dist[0][0] > self.MAX_DISTANCE:
+            return self.ABOARD
+
+        for i in ind[0]:  # compute distance to each commune
+            location = self.location[i]
+            if location[-1].intersects(point):
+                return normalize_name(location[0])
+
+        distances = []  # distance to contours
+        for i in ind[0]:  # compute distance to each commune
+            location = self.location[i]
+            distances.append(point.distance(location[-1]))  # compute distance to polygon
+        info = self.location[ind[np.argmin(distances)]][0]
+        return normalize_name(info)
+
+
 if __name__ == '__main__':
     from_date = '2018-11-14'
     end_date = '2018-11-27'
@@ -209,7 +280,7 @@ if __name__ == '__main__':
     VNM_ADM_PATH = '/home/phongdk/VNM_adm/'
     filename_location = "location_from_{}_to_{}.csv.gz".format(from_date, end_date)
 
-    vn_adm2 = AdministrativeArea(VNM_ADM_PATH)
+    vn_adm2 = AdministrativeArea_KDTree(VNM_ADM_PATH)
     # vn_adm2 = AdministrativeArea2(VNM_ADM_PATH)
     print(vn_adm2.find_address(20.46120, 106.176))
     print(vn_adm2.find_address(19.3724, 105.9281))
