@@ -87,11 +87,11 @@ class Device(Property):
 
         elif os_name in ['windows', 'linux']:
             if str(CPU_model) != '-1' and 'intel' in CPU_model.lower():  # check processor
-                return self.get_intel_processor_score(CPU_model.lower())
-
+                score = self.get_intel_processor_score(CPU_model.lower())
+                if score is not None:
+                    return score
             if hardware in self.__hardware_cate.index:  # check hardware
                 return self.__score_hardware[self.__hardware_cate.loc[hardware].values[0]]  # map raw cate to score
-
             # cpu_price = self.__price_cpu.loc[CPU_model].values[0] if CPU_model in self.__price_cpu.index else 0
             # ram_price = self.get_ram_price(ram) if ram else 0
             # screen_price = self.get_screen_price(screen_height, screen_width) \
@@ -145,8 +145,8 @@ class Device(Property):
     def __load_hardware_category(self):
         df_hardware = pd.read_csv(os.path.join(self.__data_path, 'model_name_to_class.csv'), sep='\t', header=None)
         df_hardware.columns = ['model', 'raw_cate']
+        df_hardware.drop_duplicates(subset=['model', 'raw_cate'], inplace=True)
         df_hardware.set_index('model', inplace=True)
-        # print(df_hardware.head())
         return df_hardware
 
 
