@@ -20,7 +20,6 @@ CONNECT_TO_AGGREGATOR = "clickhouse-client --progress --user=stats_webui " \
 
 def get_data_from_server(connect_to_server, query, external=""):
     command = connect_to_server + "\"{}\" ".format(query) + external
-
     output = subprocess.check_output(command, shell=True)
     output = output.decode('utf-8', errors='ignore').split('\n')
     output = [x.split('\t') for x in output]
@@ -107,20 +106,6 @@ def collect_user_hardware_info(filename, from_date, end_date):
 
 def collect_user_location(filename, from_date, end_date):
     print("PROCESS : LOCATION")
-    # query = "SELECT " \
-    #         "toInt64(cityHash64(user_id)) as uid, " \
-    #         "lat, " \
-    #         "lon " \
-    #         "FROM " \
-    #         "browser.metrics " \
-    #         "WHERE " \
-    #         "event_date BETWEEN '{}' AND '{}' " \
-    #         "AND lat > 0 AND lon > 0 " \
-    #         "GROUP BY uid, lat, lon " \
-    #         "ORDER BY uid, lat, lon " \
-    #         "".format(from_date, end_date)
-    # output = get_data_from_server(CONNECT_TO_AGGREGATOR, query)
-    # columns = ['user_id', 'lat', 'lon']
     query = "SELECT " \
             "toInt64(cityHash64(user_id)) as uid, " \
             "regions[-2] " \
@@ -136,6 +121,22 @@ def collect_user_location(filename, from_date, end_date):
     export_to_csv(filename, output, columns)    # the file size is larger than 1 GB --> use DASK to distribute file
     del output
     gc.collect()
+
+
+def collect_user_payment_success(filename, from_date, end_date, filter_urls):
+    print("PROCESS : --------------- PAYMENT_SUCCESS -------------------")
+    website = "%tiki.vn/checkout/payment/success%"
+    query = "SELECT " \
+            "toInt64(cityHash64(user_id)) as uid, " \
+            "count(uid) " \
+            "FROM browser.clickdata " \
+            "WHERE event_date BETWEEN '{}' AND '{}' " \
+            "AND (redirect like '{}' OR request like '{}') " \
+            "GROUP BY uid " \
+            "".format(from_date, end_date, website, website)
+    output = get_data_from_server(CONNECT_TO_AGGREGATOR, query)
+    columns = ['user_id', 'location']
+    print(len(output))
 
 
 def export_to_csv(filename, output, columns):
@@ -166,6 +167,8 @@ if __name__ == '__main__':
     filename_tour = "tour_from_{}_to_{}.csv.gz".format(from_date, end_date)
     filename_shopping = "shopping_from_{}_to_{}.csv.gz".format(from_date, end_date)
 
+    filename_payment = "payment_from_{}_to_{}.csv.gz".format(from_date, end_date)
+
     """EXTERNAL DATA"""
     EXTERNAL_PATH = os.path.join(os.getcwd(), "external_data", "url_properties")
     FILTER_AIRLINE = os.path.join(EXTERNAL_PATH, "10952_Airplane")
@@ -174,13 +177,16 @@ if __name__ == '__main__':
     FILTER_BOOKING_HOTEL = os.path.join(EXTERNAL_PATH, "10954_10959_Hotel")
     FILTER_TOUR = os.path.join(EXTERNAL_PATH, "10957_Tour")
     FILTER_SHOPPING = os.path.join(EXTERNAL_PATH, "shopping")
+    FILTER_PAYMENT = os.path.join(EXTERNAL_PATH, "shopping_payment_success")
 
-    # collect_user_demography_info(filename_demography, from_date, end_date)
-    # collect_user_hardware_info(filename_hardware, from_date, end_date)
+    collect_user_demography_info(filename_demography, from_date, end_date)
+    collect_user_hardware_info(filename_hardware, from_date, end_date)
     collect_user_location(filename_location, from_date, end_date)
 
-    # for filename, filter_data in zip([filename_airline, filename_luxury, filename_booking_resort,
-    #                                   filename_booking_hotel, filename_tour, filename_shopping],
-    #                                  [FILTER_AIRLINE, FILTER_LUXURY, FILTER_BOOKING_RESORT,
-    #                                   FILTER_BOOKING_HOTEL, FILTER_TOUR, FILTER_SHOPPING]):
-    #     collect_user_url_with_filter_info(filename, from_date, end_date, filter_data)
+    for filename, filter_data in zip([filename_airline, filename_luxury, filename_booking_resort,
+                                      filename_booking_hotel, filename_tour, filename_shopping],
+                                     [FILTER_AIRLINE, FILTER_LUXURY, FILTER_BOOKING_RESORT,
+                                      FILTER_BOOKING_HOTEL, FILTER_TOUR, FILTER_SHOPPING]):
+        collect_user_url_with_filter_info(filename, from_date, end_date, filter_data)
+
+    collect_user_payment_success(filename_payment, from_date, end_date, FILTER_PAYMENT)

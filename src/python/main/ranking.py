@@ -38,7 +38,7 @@ from age import Age
 # from os_name import OS_name
 from device import Device
 from address import Address
-from vietnamADM import AdministrativeArea_KDTree
+# from vietnamADM import AdministrativeArea_KDTree
 
 import dask.dataframe as dd
 from dask.distributed import Client, LocalCluster
@@ -116,32 +116,6 @@ def process_hardware(path, filename, property, nrows=None):
     return df[col_name]
 
 
-# def process_location(path, filename, property, nrows=None):
-#     print("---------------------------PROCESS LOCATION------------------")
-#     df = load_data(path, filename, nrows=nrows)
-#     vn_adm = AdministrativeArea_KDTree(VNM_ADM_PATH)
-#
-#     #address = df.apply(lambda x: vn_adm.find_address(x['lat'], x['lon']), axis=1)
-#     print('FINDING : Address')
-#     df_dask = dd.from_pandas(df, npartitions=N_JOBS)    # convert to DASK Dataframe
-#     address = df_dask.apply(lambda x: vn_adm.find_address(x['lat'], x['lon']), axis=1).compute()
-#
-#     print('Done : Address')
-#     df['address'] = address #df.apply(lambda x: vn_adm.find_address(x['lat'], x['lon']), axis=1)
-#     df = df[['user_id', 'address']].drop_duplicates(subset=['user_id', 'address'])
-#     df.to_csv(os.path.join(path, 'address_result.csv.gz'), compression='gzip', index=False)
-#
-#     df = df.groupby('user_id')['address'].apply(list).to_frame()
-#     print('Compute : Score')
-#     df[f"{property.get_name()}_score"] = df['address'].apply(lambda x: property.get_score(x))
-#     df['traveller_score'] = df['address'].apply(lambda x: property.get_score_traveller_by_locations(x))
-#
-#     # df_dask = df_dask.assign(**{'address': address})
-#     # user_list_provinces = df_dask.groupby('user_id')['address'].apply(list).compute()  # pandas
-#     # df_dask.to_csv(os.path.join(PATH, "address_from_{}_to_{}_file*.csv".format(from_date, end_date)), index=False)
-#     print(df.head())
-#     return df[['address_score', 'traveller_score']]
-
 def get_code2address(filename="external_data/location/Vietnam regions.xlsx"):
     CITY = ["hà nội", "hồ chí minh", "đà nẵng", "hải phòng", "cần thơ"]
     df = pd.read_excel(filename, sheet_name='Districts')
@@ -193,72 +167,7 @@ def merge_data(list_df):
     return df_total
 
 
-#
-#
-# def compute_score(df, properties):
-#     print('----------------------Compute SCORE ---------------------------')
-#     # df['score'] = np.zeros(len(df))
-#     # for col in df.columns:
-#     #     df['score'] = df.apply(lambda x: x['score'] + map_score[col][x[col]])
-#     for (i, proper) in enumerate(properties):  # can be paralleled
-#         col = proper.get_name()
-#         print(col)
-#         if col == 'device':
-#             df[col + "_score"] = df[['os_name', 'hw_class', 'cpu', 'sys_ram_mb',
-#                                      'screen_height', 'screen_width']].apply(lambda x: proper.get_score(x), axis=1)
-#         else:
-#             df[col + "_score"] = df[col].apply(lambda x: proper.get_score(x))
-#     col_score = [col for col in df.columns if 'score' in col]
-#     df = df[col_score]
-#     df['total_score'] = df.sum(axis=1)
-#     print("Memory usage of properties dataframe is :", df.memory_usage().sum() / 1024 ** 2, " MB")
-#     df.to_csv('/home/phongdk/tmp/score2.csv.gz', compression='gzip', index=True)
-#     print(df.head())
-
-
-# def merge_data(list_df):
-#     print("-----------------------Merge data-----------------------------")
-#     list_dask_df = [dd.from_pandas(df, npartitions=4) for df in list_df]  # convert to Dask DF with chunksize 64MB
-#
-#     for (i, df) in enumerate(list_dask_df):
-#         if i == 0:
-#             df_total = df[:]
-#         else:
-#             df_total = df_total.merge(df, left_index=True, right_index=True, how='outer')
-#     print(type(df_total))
-#     df_total = df_total.fillna(-1)
-#     return df_total
-#
-#
-# def compute_score(df, properties):
-#     print('----------------------Compute SCORE ---------------------------')
-#     for (i, proper) in enumerate(properties):
-#         print(proper)
-#         col = proper.get_name()
-#         if col == 'device':
-#             df_dask = df[['os_name', 'hw_class', 'cpu', 'sys_ram_mb',
-#                           'screen_height', 'screen_width']].apply(lambda x: proper.get_score(x), axis=1)
-#         else:
-#             df_dask = df[col].apply(lambda x: proper.get_score(x)).compute()
-#         df = df.assign(**{col + "_score": df_dask})
-#
-#     # print("Memory usage of properties dataframe is :", df.memory_usage().sum() / 1024 ** 2, " MB")
-#     col_score = [col for col in df.columns if 'score' in col]
-#     df = df[col_score]
-#     df['total_score'] = df.sum(axis=1).compute()
-#     df.to_csv('/home/phongdk/tmp/score_dask*.csv.gz', compression='gzip', index=True)
-#     # print(df.head())
-#     return df
-
-
 def process():
-    # df_demography = load_data(PATH, filename_demography, nrows=1000)
-    # df_hardware_location = load_data(PATH, filename_hardware_location, nrows=1000)
-    # df_url_property = [load_data(PATH, filename) for filename in filename_based_url]
-
-    # get_unique_user_id([df_demography, df_hardware_location, df_shopping, df_booking])
-    # unique_users = get_unique_user_id([df_shopping, df_booking])
-    # compute_score(unique_users)
     nrows = None
     start = time.time()
     df_hardware = process_hardware(PATH, filename_hardware, Device('device'), nrows=nrows)
@@ -300,9 +209,6 @@ if __name__ == '__main__':
     end_date = '2019-05-13'
 
     PATH = '/home/phongdk/data_user_income_targeting/2019-05-13'
-    # VNM_ADM_PATH = '/home/phongdk/VNM_adm/'
-
-    #vn_adm = AdministrativeArea(VNM_ADM_PATH)
 
     # have to put cluster, client inside main function
     cluster = LocalCluster(ip="0.0.0.0")
