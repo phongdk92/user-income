@@ -1,0 +1,561 @@
+,,
+,,
+,,
+Intel® X-series Processor Family,Oct'18 (10/08),Jan'19 (01/07)
+,,
+Desktop (LGA2066),Price,Price
+"i9-9980XE (24.75M cache, 18 Cores, 36 Threads, 3.00 GHz)","$1,979","$1,979"
+"i9-7980XE (24.75M cache, 18 Cores, 36 Threads, 2.60 GHz)","$1,979","$1,979"
+"i9-9960X (22M cache, 16 Cores, 32 Threads, 3.10 GHz)","$1,684","$1,684"
+"i9-7960X (22M cache, 16 Cores, 32 Threads, 2.80 GHz)","$1,684","$1,684"
+"i9-9940X (19.25M cache, 14 Cores, 28 Threads, 3.30 GHz)","$1,387","$1,387"
+"i9-7940X (19.25M cache, 14 Cores, 28 Threads, 3.10 GHz)","$1,387","$1,387"
+"i9-9920X (19.25M cache, 12 Cores, 24 Threads, 3.50 GHz)","$1,189","$1,189"
+"i9-7920X (16.5M cache, 12 Cores, 24 Threads, 2.90 GHz)","$1,189","$1,189"
+"i9-9900X (19.25M cache, 10 Cores, 20 Threads, 3.50 GHz)",$989,$989
+"i9-7900X (13.75M cache, 10 Cores, 20 Threads, 3.30 GHz)",$989,$989
+"i9-9820X (16.5M cache, 10 Cores, 20 Threads, 3.30 GHz)",$889,$889
+"i7-7820X (11M cache, 8 Cores, 16 Threads, 3.60 GHz)",$589,$589
+"i7-9800X (16.5M cache, 8 Cores, 16 Threads, 3.80 GHz)",$589,$589
+"i7-7800X (8.25M cache, 6 Cores, 12 Threads, 3.50 GHz)",$383,$383
+"i7-7740X (8M cache, 4 Cores, 8 Threads, 4.30 GHz)",$339,$339
+"i5-7640X (6M cache, 4 Cores, 4 Threads, 4.00 GHz)",$242,$242
+Intel® CoreTM i9 processor,Oct'18 (10/08),Jan'19 (01/07)
+,,
+Desktop (LGA1151),Price,Price
+"i9-9900KF (16M cache, 8 Cores, 16 Threads, 3.60 GHz)",-,$488
+"i9-9900K (16M cache, 8 Cores, 16 Threads, 3.60 GHz)",$488,$488
+Intel® CoreTM i7 processor Extreme Edition,Oct'18 (10/08),Jan'19 (01/07)
+,,
+Desktop (LGA2011),Price,Price
+"i7-6950X (25M cache, 10 Cores, 20 Threads, 3.00 GHz)","$1,723","$1,723"
+"i7-5960X (20M cache, 8 Cores, 16 Threads, 3.00 GHz)",$999,$999
+Intel® CoreTM i7 processor,Oct'18 (10/08),Jan'19 (01/07)
+,,
+Desktop (LGA1150/1151/1155/2011),Price,Price
+"i7-5930K (15M cache, 6 Cores, 12 Threads, 3.50 GHz)",$583,$583
+"i7-5820K (15M cache, 6 Cores, 12 Threads, 3.30 GHz)",$389,$389
+"i7-9700KF (12M cache, 8 Cores, 8 Threads, 3.60 GHz)",-,$374
+"i7-9700K (12M cache, 8 Cores, 8 Threads, 3.60 GHz)",$374,$374
+"i7-8700K (12M cache, 6 Cores, 12 Threads, 3.70 GHz)",$359,$359
+"i7-7700K (8M cache, 4 Cores, 8 Threads, 4.20 GHz)",$339,$339
+"i7-6700K (8M cache, 4 Cores, 8 Threads, 4.00 GHz)",$339,$339
+"i7-8700 (12M cache, 6 Cores, 12 Threads, 3.20 GHz)",$303,$303
+"i7-7700 (8M cache, 4 Cores, 8 Threads, 3.60 GHz)",$303,$303
+"i7-6700 (8M cache, 4 Cores, 8 Threads, 3.40 GHz)",$303,$303
+Intel® CoreTM i5 processor,Oct'18 (10/08),Jan'19 (01/07)
+,,
+Desktop (LGA1155/1150/1151),Price,Price
+"i5-9600KF (9M cache, 6 Cores, 6 Threads, 3.70 GHz)",-,$262
+"i5-9600K (9M cache, 6 Cores, 6 Threads, 3.70 GHz)",$262,$262
+"i5-8600K (9M cache, 6 Cores, 6 Threads, 3.60 GHz)",$257,$257
+"i5-7600K (6M cache, 4 Cores, 4 Threads, 3.80 GHz)",$242,$242
+"i5-6600K (6M cache, 4 Cores, 4 Threads, 3.50 GHz)",$242,$242
+"i5-8600 (9M cache, 6 Cores, 6 Threads, 3.10 GHz)",$213,$213
+"i5-7600 (6M cache, 4 Cores, 4 Threads, 3.50 GHz)",$213,$213
+"i5-6600 (6M cache, 4 Cores, 4 Threads, 3.30 GHz)",$213,$213
+"i5-8500 (9M cache, 6 Cores, 6 Threads, 3.00 GHz)",$192,$192
+"i5-7500 (6M cache, 4 Cores, 4 Threads, 3.40 GHz)",$192,$192
+"i5-6500 (6M cache, 4 Cores, 4 Threads, 3.20 GHz)",$192,$192
+"i5-9400 (9M cache, 6 Cores, 6 Threads, 2.90 GHz)",-,$182
+"i5-9400F (9M cache, 6 Cores, 6 Threads, 2.90 GHz)",-,$182
+"i5-8400 (9M cache, 6 Cores, 6 Threads, 2.80 GHz)",$182,$182
+"i5-7400 (6M cache, 4 Cores, 4 Threads, 3.00 GHz)",$182,$182
+"i5-6400 (6M cache, 4 Cores, 4 Threads, 2.70 GHz)",$182,$182
+Intel® CoreTM i3 processor,Oct'18 (10/08),Jan'19 (01/07)
+,,
+Desktop (LGA1150/1151),Price,Price
+"i3-9350KF (8M cache, 4 Cores, 4 Threads, 4.00 GHz)",-,$173
+"i3-8350K (8M cache, 4 Cores, 4 Threads, 4.00 GHz)",$168,$168
+"i3-7350K (4M cache, 2 Cores, 4 Threads, 4.20 GHz)",$168,$168
+"i3-7320 (4M cache, 2 Cores, 4 Threads, 4.10 GHz)",$149,$149
+"i3-6320 (4M cache, 2 Cores, 4 Threads, 3.90 GHz)",$149,$149
+"i3-8300 8M cache, 4 Cores, 4 Threads, 3.70 GHz)",$138,$138
+"i3-7300 (4M cache, 2 Cores, 4 Threads, 4.00 GHz)",$138,$138
+"i3-6300 (4M cache, 2 Cores, 4 Threads, 3.80 GHz)",$138,$138
+"i3-8100 (6M cache, 4 Cores, 4 Threads, 3.60 GHz)",$117,$117
+"i3-8100F (6M cache, 4 Cores, 4 Threads, 3.60 GHz)",-,$117
+"i3-7100 (3M cache, 2 Cores, 4 Threads, 3.90 GHz)",$117,$117
+"i3-6100 (3M cache, 2 Cores, 4 Threads, 3.70 GHz)",$117,$117
+Intel® CoreTM i7 processor Low Power,Oct'18 (10/08),Jan'19 (01/07)
+,,
+Desktop (LGA1150/1151/1155/FCBGA12F),Price,Price
+"i7-5775C (6M cache, 4 Cores, 8 Threads, 3.30 GHz)",$366,$366
+"i7-8700T (12M cache, 6 Cores, 12 Threads, 2.40 GHz)",$303,$303
+"i7-7700T (8M cache, 4 Cores, 8 Threads, 2.90 GHz)",$303,$303
+"i7-6700T (8M cache, 4 Cores, 8 Threads, 2.80 GHz)",$303,$303
+Intel® CoreTM i5 processor Low Power,Oct'18 (10/08),Jan'19 (01/07)
+,,
+Desktop (LGA/1150/1151/1155/FCBGA12F),Price,Price
+"i5-5675C (4M cache, 4 Cores, 4 Threads, 3.10 GHz)",$276,$276
+"i5-8600T (9M cache, 6 Cores, 6 Threads, 2.30 GHz)",$213,$213
+"i5-7600T (6M cache, 4 Cores, 4 Threads, 2.80 GHz)",$213,$213
+"i5-6600T (6M cache, 4 Cores, 4 Threads, 2.70 GHz)",$213,$213
+"i5-8500T (9M cache, 6 Cores, 6 Threads, 2.10 GHz)",$192,$192
+"i5-7500T (6M cache, 4 Cores, 4 Threads, 2.70 GHz)",$192,$192
+"i5-6500T (6M cache, 4 Cores, 4 Threads, 2.50 GHz)",$192,$192
+"i5-8400T (9M cache, 6 Cores, 6 Threads, 1.70 GHz)",$182,$182
+"i5-7400T (6M cache, 4 Cores, 4 Threads, 2.40 GHz)",$182,$182
+"i5-6400T (6M cache, 4 Cores, 4 Threads, 2.20 GHz)",$182,$182
+Intel® CoreTM i3 processor Low Power,Oct'18 (10/08),Jan'19 (01/07)
+,,
+Desktop (LGA1150/1151/1155),Price,Price
+"i3-8300T 8M cache, 4 Cores, 4 Threads, 3.20 GHz)",$138,$138
+"i3-7300T 4M cache, 2 Cores, 4 Threads, 3.50 GHz)",$138,$138
+"i3-6300T (4M cache, 2 Cores, 4 Threads, 3.30 GHz)",$138,$138
+"i3-8100T (6M cache, 4 Cores, 4 Threads, 3.10 GHz)",$117,$117
+"i3-7100T (3M cache, 2 Cores, 4 Threads, 3.40 GHz)",$117,$117
+"i3-6100T (3M cache, 2 Cores, 4 Threads, 3.20 GHz)",$117,$117
+Intel® Pentium®  processor,Oct'18 (10/08),Jan'19 (01/07)
+,,
+Desktop (LGA1150/1151/1155),Price,Price
+"G5600 (4M cache, 2 Cores, 4 Threads, 3.90 GHz)",$86,$86
+"G4620 (3M cache, 2 Cores, 4 Threads, 3.70 GHz)",$86,$86
+"G4520 (3M cache, 2 Cores, 2 Threads, 3.60 GHz)",$86,$86
+"G5500 (4M cache, 2 Cores, 4 Threads, 3.80 GHz)",$75,$75
+"G4600 (3M cache, 2 Cores, 4 Threads, 3.60 GHz)",$75,$75
+"G4500 (3M cache, 2 Cores, 2 Threads, 3.50 GHz)",$75,$75
+"G5400 (4M cache, 2 Cores, 4 Threads, 3.70 GHz)",$64,$64
+"G4560 (3M cache, 2 Cores, 4 Threads, 3.50 GHz)",$64,$64
+"G4400 (3M cache, 2 Cores, 2 Threads, 3.30 GHz)",$64,$64
+Intel® Pentium® processor (Low Power),Oct'18 (10/08),Jan'19 (01/07)
+,,
+Desktop (LGA1150/1151/1155/FCBGA15F),Price,Price
+"G5500T (4M cache, 2 Cores, 4 Threads, 3.20 GHz)",$75,$75
+"G4600T (3M cache, 2 Cores, 4 Threads, 3.00 GHz)",$75,$75
+"G4500T (3M cache, 2 Cores, 2 Threads, 3.00 GHz)",$75,$75
+"G4400T (3M cache, 2 Cores, 2 Threads, 2.90 GHz)",$64,$64
+"G5400T (4M cache, 2 Cores, 4 Threads, 3.10 GHz)",$64,$64
+"G4560T (3M cache, 2 Cores, 4 Threads, 2.90 GHz)",$64,$64
+"J3710 (2M cache, 4 Cores, 4 Threads, up to 2.64 GHz)",$161,$161
+"N3700 (2M cache, 4 Cores, 4 Threads, up to 2.40 GHz)",$161,$161
+"J4205 (2M cache 4 Cores, 4 Threads, up to 2.60 GHz)",$161,$161
+Intel® Celeron® processor,Oct'18 (10/08),Jan'19 (01/07)
+,,
+Desktop (LGA1150/1151/1155),Price,Price
+"G4920 (2M cache, 2 Cores, 2 Threads, 3.20 GHz)",$52,$52
+"G3950 (2M cache, 2 Cores, 2 Threads, 3.00 GHz)",$52,$52
+"G3920 (2M cache, 2 Cores, 2 Threads, 2.90 GHz)",$52,$52
+"G4900 (2M cache, 2 Cores, 2 Threads, 3.10 GHz)",$42,$42
+"G3930 (2M cache, 2 Cores, 2 Threads, 2.90 GHz)",$42,$42
+"G3900 (2M cache, 2 Cores, 2 Threads, 2.80 GHz)",$42,$42
+Intel® Celeron® processor (Low Power),Oct'18 (10/08),Jan'19 (01/07)
+,,
+Desktop (LGA1150/1151/1155/FCBGA15F),Price,Price
+"J3160 (2M cache, 4 Cores, 4 Threads, up to 2.24 GHz)",$107,$107
+"J3455 (2M cache, 4 Cores, 4 Threads, up to 2.30 GHZ)",$107,$107
+"J3060 (2M cache, 2 Cores, 2 Threads, up to 2.48 GHz)",$107,$107
+"N3050 (2M cache, 2 Cores, 2 Threads, up to 2.16 GHz)",$107,$107
+"J3355 (2M cache, 2 Cores, 2 Threads, up to 2.50 GHz)",$107,$107
+"G4900T (2M cache, 2 Cores, 2 Threads, 2.90 GHz)",$42,$42
+"G3930T (2M cache, 2 Cores, 2 Threads, 2.70 GHz)",$42,$42
+"G3900T (2M cache, 2 Cores, 2 Threads, 2.60 GHz)",$42,$42
+Performance Mobile,Oct'18 (10/08),Jan'19 (01/07)
+,,
+Xeon® Processor,Price,Price
+"E3-1575M v5 (8M cache, 4 Cores, 8 Threads, 3.00 GHz)","$1,207","$1,207"
+"E3-1545M v5 (8M cache, 4 Cores, 8 Threads, 2.90 GHz)",$679,$679
+"E3-1515M v5 (8M cache, 4 Cores, 8 Threads, 2.80 GHz)",$489,$489
+"E3-1535M v5 (8M cache, 4 Cores, 8 Threads, 2.90 GHz)",$623,$623
+"E-2186M (12M cache, 6 Cores, 12 Threads, 2.90 GHz)",$623,$623
+"E3-1505M v5 (8M cache, 4 Cores, 8 Threads, 2.80 GHz)",$434,$434
+"E3-1535M v6, (8M cache, 4 Cores, 8 Threads, 3.10 GHz)",$623,$623
+"E3-1505M v6 (8M cache, 4 Cores, 8 Threads, 3.00 GHz)",$434,$434
+"E-2176M (12M cache, 6 Cores, 12 Threads, 2.70 GHz)",$450,$450
+Intel® CoreTM i9 processor,Oct'18 (10/08),Jan'19 (01/07)
+,,
+Mobile (FCBGA14F/Socket G2),Price,Price
+"i9-8950HK (12M cache, 6 Cores, 12 Threads, 2.90 GHz)",$583,$583
+,,
+Intel® CoreTM i7 processor,Oct'18 (10/08),Jan'19 (01/07)
+,,
+"Mobile (FCPGA10/Socket G2, FCBGA10)",Price,Price
+"i7-6970HQ (8M cache, 4 Cores, 8 Threads, 2.80 GHz)",$623,$623
+"i7-6870HQ (8M cache, 4 Cores, 8 Threads, 2.70 GHz)",$434,$434
+"i7-6770HQ (6M cache, 4 Cores, 8 Threads, 2.60 GHz)",$434,$434
+"I7-7920HQ, 8M cache, 4 Cores, 8 Threads, 3.10 GHz)",$568,$568
+"i7-7820HQ, 8M cache, 4 Cores, 8 Threads, 2.90 GHz)",$378,$378
+"i7-7820HK, (8M cache, 4 Cores, 8 Threads, 2.90 GHz)",$378,$378
+"i7-8850H (9M cache, 6 Cores, 12 Threads, 2.60 GHz)",$395,$395
+"i7-7700HQ (6M cache, 4 Cores, 8 Threads, 2.80 GHz)",$378,$378
+"i7-8750H (9M cache, 6 Cores, 12 Threads, 2.20 GHz)",$395,$395
+"i7-6920HQ (8M cache, 4 Cores, 8 Threads, 2.90 GHz)",$568,$568
+"i7-6820HQ (8M cache, 4 Cores, 8 Threads, 2.70 GHz)",$378,$378
+"i7-6820HK (8M cache, 4 Cores, 8 Threads, 2.70 GHz)",$378,$378
+"i7-5950HQ (6M cache, 4 Cores, 8 Threads, 2.90 GHz)",$623,$623
+"i7-5850HQ (6M cache, 4 Cores, 8 Threads, 2.70 GHz)",$434,$434
+"i7-5750HQ (6M cache, 4 Cores, 8 Threads, 2.50 GHz)",$434,$434
+"i7-5700HQ (6M cache, 4 Cores, 8 Threads, 2.70 GHz)",$378,$378
+"i7-6700HQ (6M cache, 4 Cores, 8 Threads, 2.60 GHz)",$378,$378
+Intel® CoreTM i5 processor,Oct'18 (10/08),Jan'19 (01/07)
+,,
+Mobile (FCPGA10/Socket G2),Price,Price
+"i5-6350HQ (6M cache, 4 Cores, 4 Threads, 2.30 GHz)",$306,$306
+"i5-6440HQ (6M cache, 4 Cores, 4 Threads, 2.60 GHz)",$250,$250
+"i5-7440HQ, 6M cache, 4 Cores, 4 Threads, 2.80 GHz)",$250,$250
+"i5-8400H, 8M cache, 4 Cores, 8 Threads, 2.50 GHz)",$250,$250
+"i5-7300HQ (6M cache, 4 Cores, 4 Threads, 2.50 GHz)",$250,$250
+"i5-8300H (8M cache, 4 Cores, 8 Threads, 2.30 GHz)",$250,$250
+"i5-6300HQ (6M cache, 4 Cores, 4 Threads, 2.30 GHz)",$250,$250
+Intel® CoreTM i3 processor,Oct'18 (10/08),Jan'19 (01/07)
+,,
+Mobile (FCPGA10/Socket G2),Price,Price
+"i3-7100H (3M cache, 2 Cores, 4 Threads, 3.00 Ghz)",$225,$225
+"i3-6100H (3M cache, 2 Cores, 4 Threads, 2.70 GHz)",$225,$225
+LV/uLV Intel® CoreTM i7 processor,Oct'18 (10/08),Jan'19 (01/07)
+,,
+Mobile (FCBGA10),Price,Price
+"i7-6660U (4M cache, 2 Cores, 4 Threads, 2.40 GHz)",$415,$415
+"i7-6650U (4M cache, 2 Cores, 4 Threads, 2.20 GHz)",$415,$415
+"i7-6560U (4M cache, 2 Cores, 4 Threads, 2.20 GHz)",$415,$415
+"i7-7560U (4M cache, 2 Cores, 4 Threads, 2.40 GHz)",$415,$415
+"i7-6567U (4M cache, 2 Cores, 4 Threads, 3.30 GHz)",$415,$415
+"i7-7567U (4M cache, 2 Cores, 4 Threads, 3.50 GHz)",$415,$415
+"i7-8559U (8M cache, 4 Cores, 8 Threads, 2.70 GHz)",$431,$431
+"i7-5650U (4M cache, 2 Cores, 4 Threads, 2.20 GHz)",$426,$426
+"i7-6600U (4M cache, 2 Cores, 4 Threads, 2.60 GHz)",$393,$393
+"i7-7660U (4M cache, 2 Cores, 4 Threads, 2.50 GHz)",$415,$415
+"i7-5557U (4M cache, 2 Cores, 4 Threads, 3.10 GHz)",$426,$426
+"i7-8650U (8M cache, 4 Cores, 8 Threads, 1.90, GHz)",$409,$409
+"i7-7600U (4M cache, 2 Cores, 4 Threads, 2.90, GHz)",$393,$393
+"i7-8565U (8M cache, 4 Cores, 8 Threads, 1.80, GHz)",$409,$409
+"i7-8550U (8M cache, 4 Cores, 8 Threads, 1.80, GHz)",$409,$409
+"i7-7500U (4M cache, 2 Cores, 4 Threads, 2.70 GHz)",$393,$393
+"i7-6500U (4M cache, 2 Cores, 4 Threads, 2.50 GHz)",$393,$393
+"i7-6498DU (4M cache, 2 Cores, 4 Threads, 2.50 GHz)",$393,$393
+"i7-4510U (4M cache, 2 Cores, 4 Threads, 2.00 GHz)",$393,$393
+uLV Intel® CoreTM i5 processor,Oct'18 (10/08),Jan'19 (01/07)
+,,
+Mobile (FCBGA10),Price,Price
+"i5-6360U (4M cache, 2 Cores, 4 Threads, 2.00 GHz)",$304,$304
+"i5-7360U (4M cache, 2 Cores, 4 Threads, 2.30 GHz)",$304,$304
+"i5-6260U (4M cache, 2 Cores, 4 Threads, 1.80 GHz)",$304,$304
+"i5-7260U (4M cache, 2 Cores, 4 Threads, 2.20 GHz)",$304,$304
+"i5-6287U (4M cache, 2 Cores, 4 Threads, 3.10 GHz)",$304,$304
+"i5-7287U (4M cache, 2 Cores, 4 Threads, 3.30 GHz)",$304,$304
+"i5-8269U (6M cache, 4 Cores, 8 Threads, 2.60 GHz)",$320,$320
+"i5-6267U (4M cache, 2 Cores, 4 Threads, 2.90 GHz)",$304,$304
+"i5-7267U (4M cache, 2 Cores, 4 Threads, 3.10 GHz)",$304,$304
+"i5-8259U (6M cache, 4 Cores, 8 Threads, 2.30 GHz)",$320,$320
+"i5-5350U (3M cache, 2 Cores, 4 Threads, 1.80 GHz)",$315,$315
+"i5-6300U (3M cache, 2 Cores, 4 Threads, 2.40 GHz)",$281,$281
+"i5-5287U (3M cache, 2 Cores, 4 Threads, 2.90 GHz)",$315,$315
+"i5-5257U (3M cache, 2 Cores, 4 Threads, 2.70 GHz)",$315,$315
+"i5-5250U (3M cache, 2 Cores, 4 Threads, 1.60 GHz)",$315,$315
+"i5-8350U (6M cache, 4 Cores, 8 Threads, 1.70 Ghz)",$297,$297
+"i5-7300U (3M cache, 2 Cores, 4 Threads 2.60 GHz)",$281,$281
+"i5-8265U (6M cache, 4 Cores, 8 Threads 1.60 GHz)",$297,$297
+"i5-8250U (6M cache, 4 Cores, 8 Threads 1.60 GHz)",$297,$297
+"i5-7200U (3M cache, 2 Cores, 4 Threads, 2.50 GHz)",$281,$281
+"i5-6200U (3M cache, 2 Cores, 4 Threads, 2.30 GHz)",$281,$281
+"i5-6198DU (3M cache, 2 Cores, 4 Threads, 2.30 GHz)",$281,$281
+uLV Intel® CoreTM i3 processor,Oct'18 (10/08),Jan'19 (01/07)
+,,
+Mobile (FCBGA10),Price,Price
+"i3-7167U (3M cache, 2 Cores, 4 Threads, 2.80 GHz)",$304,$304
+"i3-8109U (4M cache, 2 Cores, 4 Threads, 3.00 GHz)",$304,$304
+"i3-5157U (3M cache, 2 Cores, 4 Threads, 2.50 GHz)",$315,$315
+"i3-5010U (3M cache, 2 Cores, 4 Threads, 2.10 GHz)",$281,$281
+"i3-5005U (3M cache, 2 Cores, 4 Threads, 2.00 GHz)",$275,$275
+"I3-7100U (3M cache, 2 Cores, 4 Threads, 2.40 GHz)",$281,$281
+"I3-8145U (4M cache, 2 Cores, 4 Threads, 2.10 GHz)",$281,$281
+"i3-8130U (4M cache, 2 Cores, 4 Threads, 2.20 GHz)",$281,$281
+"i3-6006U (3M cache, 2 Cores, 4 Threads, 2.00 GHz)",$281,$281
+"i3-6100U (3M cache, 2 Cores, 4 Threads, 2.30 GHz)",$281,$281
+"i3-5020U (3M cache, 2 Cores, 4 Threads, 2.20 GHz)",$281,$281
+"i3-5015U (3M cache, 2 Cores, 4 Threads, 2.10 GHz)",$275,$275
+Intel® CoreTM M Processor,Oct'18 (10/08),Jan'19 (01/07)
+,,
+Mobile (FCBGA10),Price,Price
+"m7-6Y75 (4M cache, 2 Cores, 4 Threads, 1.20 GHz)",$393,$393
+"i7-8500Y (4M cache, 2 Cores, 4 Threads, 1.50 GHz)",$393,$393
+"i7-7Y75 (4M cache, 2 Cores, 4 Threads, 1.30 GHz)",$393,$393
+"i5-7Y57 (4M cache, 2 Cores, 4 Threads, 1.20 GHz)",$281,$281
+"i5-8200Y (4M cache, 2 Cores, 4 Threads, 1.30 GHz)",$281,$281
+"i5-7Y54 (4M cache, 2 Cores, 4 Threads, 1.20 GHz)",$281,$281
+"M3-8100Y, (4M cache, 2 Cores, 4 Threads, 1.10 GHz)",$281,$281
+"m3-7Y30, (4M cache, 2 Cores, 4 Threads, 1.00 GHz)",$281,$281
+"5Y71 (4M cache, 2 Cores, 4 Threads, 1.20 GHz)",$281,$281
+uLV Intel®  Pentium® processor,Oct'18 (10/08),Jan'19 (01/07)
+,,
+"Mobile (FCBGA10, FCBGA15F)",Price,Price
+"4417U (2M cache, 2 Cores, 4 Threads, 2.30 GHz uLV)",-,$161
+"5405U (2M cache, 2 Cores, 4 Threads, 2.30 GHz uLV)",-,$161
+"4405U (2M cache, 2 Cores, 4 Threads, 2.10 GHz uLV)",$161,$161
+"4415U (2M cache, 2 Cores, 4 Threads, 2.30 GHz, uLV)",$161,$161
+"N4200, 2M cache, 4 Cores, 4 Threads, 2.50 GHz, uLV)",$161,$161
+"N5000, 4M cache, 4 Cores, 4 Threads, 2.70 GHz, uLV)",$161,$161
+"N3710 (2M cache, 4 Cores, 4 Threads, 2.56 GHz uLV)",$161,$161
+"4410Y (2M cache, 2 Cores, 4 Threads, 1.50 GHz, uLV)",$161,$161
+"4415Y (2M cache, 2 Cores, 4 Threads, 1.60 GHz, uLV)",$161,$161
+uLV Intel® Celeron® processor,Oct'18 (10/08),Jan'19 (01/07)
+,,
+"Mobile (FCBGA10, FCBGA15F)",Price,Price
+"3955U (2M cache, 2 Cores, 2 Threads, 2.00 GHz uLV)",$107,$107
+"3867U (2M cache, 2 Cores, 2 Threads, 1.80 GHz uLV)",-,$107
+"4205U (2M cache, 2 Cores, 2 Threads, 1.80 GHz uLV)",-,$107
+"3965U (2M cache, 2 Cores, 2 Threads, 2.20 GHz, uLV)",$107,$107
+"3865U (2M cache 2 Cores, 2 Threads, 1.80 GHz, uLV)",$107,$107
+"3855U (2M cache, 2 Cores, 2 Threads, 1.60 GHz uLV)",$107,$107
+"N3450, 2M cache, 4 Cores, 4 Threads, 2.20 GHz, uLV)",$107,$107
+"N4100, 4M cache, 4 Cores, 4 Threads, 2.40 GHz, uLV)",$107,$107
+"N3160 (2M cache, 4 Cores, 4 Threads, 2.24 GHz, uLV)",$107,$107
+"N3350, (2M, cache, 2 Cores, 2 Threads, 2.40 GHz, uLV)",$107,$107
+"N4000, (4M, cache, 2 Cores, 2 Threads, 2.60 Ghz, uLV)",$107,$107
+"N3060 (2M cache, 2 Cores, 2 Threads, 2.48 GHz uLV)",$107,$107
+"N3010 (2M cache, 2 Cores, 2 Threads, 2.24 GHz uLV)",$107,$107
+Intel® Itanium® processor 4 & 8 core versions,Oct'18 (10/08),Jan'19 (01/07)
+,,
+Server/Workstation (FC-LGA6),Price,Price
+"9760 (32M cache, 8 Cores, 16 Threads, 2.66 GHz 6.40 GT/sec (170W)","$4,650","$4,650"
+"9750 (32M cache, 4 Cores, 8 Threads, 2.53 GHz 6.40 GT/sec (170W)","$3,750","$3,750"
+"9740 (24M cache, 8 Cores, 16 Threads, 2.13 GHz 6.40 GT/sec (170W)","$2,650","$2,650"
+"9720 (20M cache, 4 Cores, 8 Threads, 1.73 GHz 6.40 GT/sec (130W)","$1,350","$1,350"
+"9560 (32M cache, 8 Cores, 16 Threads, 2.53 GHz 6.40 GT/sec (170W)","$4,650","$4,650"
+"Intel® Xeon® processor 8800 series, 24, 22, 20, 18, 16, 15, 12, 10, 6, and 4 core versions",Oct'18 (10/08),Jan'19 (01/07)
+,,
+"Server/Workstation (FCLGA12, FCLGA12A, FCGA2011-0, FCLGA8)",Price,Price
+"E7-8891 v3 (45M cache, 10 Cores, 20 Threads, 2.80 GHz (165W) 9.60 GT/ sec Intel®  QPI)","$6,841","$6,841"
+"E7-8893 v3 (45M cache, 4 Cores, 8 Threads, 3.20 GHz (140W) 9.60 GT/sec Intel®  QPI)","$6,841","$6,841"
+"E7-8890 v3 (45M cache, 18 Cores, 36 Threads, 2.50 GHz (165W ) 9.60 GT/sec Intel®  QPI)","$7,174","$7,174"
+"E7-8880 v3 (45M cache, 18 Cores, 36 Threads, 2.30 GHz (150W) 9.60 GT/sec Intel®  QPI)","$5,895","$5,895"
+"E7-8870 v3 (45M cache, 18 Cores, 36 Threads, 2.10 GHz (140W) 9.60 GT/sec Intel®  QPI)","$4,672","$4,672"
+"E7-8860 v3 (40M cache, 16 Cores, 32 Threads, 2.20 GHz (140W) 9.60 GT/sec Intel®  QPI)","$4,061","$4,061"
+"E7-8867 v3 (45M cache, 16 Cores, 32 Threads, 2.50 GHz (165W) 9.60 GT/sec Intel®  QPI)","$4,672","$4,672"
+"E7-8890 v4 (60M cache, 24 Cores, 48 Threads, 2.20 GHz (165W) 9.60 GT/sec Intel®  QPI)","$7,174","$7,174"
+"E7-8880 v4 (55M cache, 22 Cores, 44 Threads, 2.20 GHz (150W) 9.60 GT/sec Intel®  QPI)","$5,895","$5,895"
+"E7-8870 v4 (50M cache, 20 Cores, 40 Threads, 2.10 GHz (140W) 9.60 GT/sec Intel®  QPI)","$4,672","$4,672"
+"E7-8860 v4 (45M cache, 18 Cores, 36 Threads, 2.20 GHz (140W) 9.60 GT/sec Intel®  QPI)","$4,061","$4,061"
+"E7-8891 v4 (60M cache, 10 Cores, 20 Threads, 2.80 GHz (165W) 9.60 GT/sec Intel®  QPI)","$6,841","$6,841"
+"E7-8893 v4 (60M cache, 4 Cores, 8 Threads, 3.20 GHz (140W) 9.60 GT/sec Intel®  QPI)","$6,841","$6,841"
+"E7-8867 v4 (45M cache, 18 Cores, 36 Threads, 2.40 GHz (165W) 9.60 GT/sec Intel®  QPI)","$4,672","$4,672"
+"Intel®  Xeon® processor 28, 26, 24,22, 20, 18, 16, 14, 12, 10, 8, 6 and 4 core versions",Oct'18 (10/08),Jan'19 (01/07)
+,,
+Server/Workstation (FC-LGA14),Price,Price
+"8180M (38.5M cache, 28 Cores, 56 Threads, 2.50 GHz (205W) 10.40 GT/sec Intel® QPI)","$13,011","$13,011"
+"8176M (38.5M cache, 28 Cores, 56 Threads, 2.10 GHz (165W) 10.40 GT/sec Intel® QPI)","$11,722","$11,722"
+"8170M (35.75M cache, 26 Cores, 52 Threads, 2.10 GHz (165W) 10.40 GT/sec Intel® QPI)","$10,409","$10,409"
+"8160M (33M cache, 24 Cores, 48 Threads, 2.10 GHz (150W) 10.40 GT/sec Intel® QPI)","$7,704","$7,704"
+"6142M (22M cache, 16 Cores, 32 Threads, 2.60 GHz (150W) 10.40 GT/sec Intel® QPI)","$5,949","$5,949"
+"6140M (24.75M cache, 18 Cores, 36 Threads, 2.30 GHz (140W) 10.40 GT/sec Intel® QPI)","$5,448","$5,448"
+"6134M (24.75M cache, 8 Cores, 32 Threads, 3.20 GHz (130W) 10.40 GT/sec Intel® QPI)","$5,217","$5,217"
+"8180 (38.5M cache, 28 Cores, 56 Threads, 2.50 GHz (205W) 10.40 GT/sec Intel® QPI)","$10,009","$10,009"
+"8176 (38.5M cache, 28 Cores, 56 Threads, 2.10 GHz (165W) 10.40 GT/sec Intel® QPI)","$8,719","$8,719"
+"8170 (35.75M cache, 26 Cores, 52 Threads, 2.10 GHz (165W) 10.40 GT/sec Intel® QPI)","$7,405","$7,405"
+"8164 (35.75M cache, 26 Cores, 52 Threads, 2.00 GHz (150W) 10.40 GT/sec Intel® QPI)","$6,114","$6,114"
+"8168 (33M cache, 24 Cores, 48 Threads, 2.70 GHz (205W) 10.40 GT/sec Intel® QPI)","$5,890","$5,890"
+"8160 (33M cache, 24 Cores, 48 Threads, 2.10 GHz (150W) 10.40 GT/sec Intel® QPI)","$4,702","$4,702"
+"8158 (24.75M cache, 12 Cores, 24 Threads, 3.00 GHz (150W) 10.40 GT/sec Intel® QPI)","$7,007","$7,007"
+"8156 (16.5M cache, 4 Cores, 8 Threads, 3.60 GHz (105W) 10.40 GT/sec Intel® QPI)","$7,007","$7,007"
+"8153 (22M cache, 16 Cores, 32 Threads, 2.00 GHz (125W) 10.40 GT/sec Intel® QPI)","$3,115","$3,115"
+"6154 (24.75M cache, 18 Cores, 36 Threads, 3.00 GHz (200W) 10.40 GT/sec Intel® QPI)","$3,543","$3,543"
+"6152 (30.25M cache, 22 Cores, 44 Threads, 2.10 GHz (140W) 10.40 GT/sec Intel® QPI)","$3,655","$3,655"
+"6150 (24.75M cache, 18 Cores, 36 Threads, 2.70 GHz (165W) 10.40 GT/sec Intel® QPI)","$3,358","$3,358"
+"6148 (27.5M cache, 20 Cores, 40 Threads, 2.40 GHz (150W) 10.40 GT/sec Intel® QPI)","$3,072","$3,072"
+"6146 (24.75M cache, 12 Cores, 24 Threads, 3.20 GHz (165W) 10.40 GT/sec Intel® QPI)","$3,286","$3,286"
+"6144 (24.75M cache, 8 Cores, 16 Threads, 3.50 GHz (150W) 10.40 GT/sec Intel® QPI)","$2,925","$2,925"
+"6142 (22M cache, 16 Cores, 32 Threads, 2.60 GHz (150W) 10.40 GT/sec Intel® QPI)","$2,946","$2,946"
+"6140 (24.75M cache, 18 Cores, 36 Threads, 2.30 GHz (140W) 10.40 GT/sec Intel® QPI)","$2,445","$2,445"
+"6138 (27.5M cache, 20 Cores, 40 Threads, 2.00 GHz (125W) 10.40 GT/sec Intel® QPI)","$2,612","$2,612"
+"6132 (19.25M cache, 14 Cores, 28 Threads, 2.60 GHz (140W) 10.40 GT/sec Intel® QPI)","$2,111","$2,111"
+"6136 (24.75M cache, 12 Cores, 24 Threads, 3.00 GHz (150W) 10.40 GT/sec Intel® QPI)","$2,460","$2,460"
+"6134 (24.75M cache, 8 Cores, 16 Threads, 3.20 GHz (130W) 10.40 GT/sec Intel® QPI)","$2,214","$2,214"
+"6130 (22M cache, 16 Cores, 32 Threads, 2.10 GHz (125W) 10.40 GT/sec Intel® QPI)","$1,894","$1,894"
+"6128 (19.25M cache, 6 Cores, 12 Threads, 3.40 GHz (115W) 10.40 GT/sec Intel® QPI)","$1,691","$1,691"
+"6126 (19.25M cache, 12 Cores, 24 Threads, 2.60 GHz (125W) 10.40 GT/sec Intel® QPI)","$1,776","$1,776"
+"5122 (16.5M cache, 4 Cores, 8 Threads, 3.60 GHz (105W) 10.40 GT/sec Intel® QPI)","$1,221","$1,221"
+"5120 (19.25M cache, 14 Cores, 28 Threads, 2.20 GHz (105W) 10.40 GT/sec Intel® QPI)","$1,555","$1,555"
+"5118 (16.5M cache, 12 Cores, 24 Threads, 2.30 GHz (105W) 10.40 GT/sec Intel® QPI)","$1,273","$1,273"
+"5115 (13.75M cache, 10 Cores, 20 Threads, 2.40 GHz (85W) 10.40 GT/sec Intel® QPI)","$1,221","$1,221"
+"4116 (16.5M cache, 12 Cores, 24 Threads, 2.10 GHz (85W) 9.60 GT/sec Intel® QPI)","$1,002","$1,002"
+"4114 (13.75M cache, 10 Cores, 20 Threads, 2.20 GHz (85W) 9.60 GT/sec Intel® QPI)",$694,$694
+"4112 (8.25M cache, 4 Cores, 8 Threads, 2.60 GHz (85W) 9.60 GT/sec Intel® QPI)",$473,$473
+"4110 (11M cache, 8 Cores, 16 Threads, 2.10 GHz (85W) 9.60 GT/sec Intel® QPI)",$501,$501
+"4108 (11M cache, 8 Cores, 16 Threads, 1.80 GHz (85W) 9.60 GT/sec Intel® QPI)",$417,$417
+"3106 (11M cache, 8 Cores, 16 Threads, 1.70 GHz (85W) 9.60 GT/sec Intel® QPI)",$306,$306
+"3104 (8.25M cache, 6 Cores, 12 Threads, 1.70 GHz (85W) 9.60 GT/sec Intel® QPI)",$213,$213
+"8176F (38.5M cache, 28 Cores, 56 Threads, 2.10 GHz (173W) 10.40 GT/sec Intel® QPI)","$8,874","$8,874"
+"8160F (33M cache, 24 Cores, 48 Threads, 2.10 GHz (160W) 10.40 GT/sec Intel® QPI)","$4,856","$4,856"
+"6148F (27.5M cache, 20 Cores, 40 Threads, 2.40 GHz (160W) 10.40 GT/sec Intel® QPI)","$3,227","$3,227"
+"6142F (22M cache, 16 Cores, 32 Threads, 2.60 GHz (160W) 10.40 GT/sec Intel® QPI)","$3,101","$3,101"
+"6138F (27.5M cache, 20 Cores, 40 Threads, 2.00 GHz (135W) 10.40 GT/sec Intel® QPI)","$2,767","$2,767"
+"6130F (22M cache, 16 Cores, 32 Threads, 2.10 GHz (135W) 10.40 GT/sec Intel® QPI)","$2,049","$2,049"
+"6126F (19.25M cache, 12 Cores, 24 Threads, 2.60 GHz (105W) 10.40 GT/sec Intel® QPI)","$1,931","$1,931"
+"8160T (33M cache, 24 Cores, 48 Threads, 2.10 GHz (150W) 10.40 GT/sec Intel® QPI)","$4,936","$4,936"
+"6138T (27.5M cache, 20 Cores, 40 Threads, 2.00 GHz (125W) 10.40 GT/sec Intel® QPI)","$2,742","$2,742"
+"6130T (22M cache, 16 Cores, 32 Threads, 2.10 GHz (125W) 10.40 GT/sec Intel® QPI)","$1,988","$1,988"
+"6126T (19.25M cache, 12 Cores, 24 Threads, 2.60 GHz (125W) 10.40 GT/sec Intel® QPI)","$1,865","$1,865"
+"5120T (19.25M cache, 14 Cores, 28 Threads, 2.20 GHz (105W) 10.40 GT/sec Intel® QPI)","$1,727","$1,727"
+"5119T (19.25M cache, 14 Cores, 28 Threads, 1.90 GHz (85W) 10.40 GT/sec Intel® QPI)","$1,555","$1,555"
+"4116T (16.5M cache, 12 Cores, 24 Threads, 2.10 GHz (85W) 9.60 GT/sec Intel® QPI)","$1,112","$1,112"
+"4114T (13.75M cache, 10 Cores, 20 Threads, 2.20 GHz (85W) 9.60 GT/sec Intel® QPI)",$773,$773
+"4109T (11M cache, 8 Cores, 16 Threads, 2.00 GHz (70W) 9.60 GT/sec Intel® QPI)",$501,$501
+"Intel®  Xeon® processor 4800 series, 16, 14, 12, 10 and 8 core versions",Oct'18 (10/08),Jan'19 (01/07)
+,,
+"Server/Workstation (FCLGA12, FCLGA8)",Price,Price
+"E7-4850 v3 (35M cache, 14 Cores, 28 Threads, 2.20 GHz (115W) 8.00 GT/sec Intel® QPI)","$3,003","$3,003"
+"E7-4830 v3 (30M cache, 12 Cores, 24 Threads, 2.10 GHz (115W) 8.00 GT/sec Intel®  QPI)","$2,170","$2,170"
+"E7-4820 v3 (25M cache, 10 Cores, 20 Threads, 1.90 GHz (115W) 6.40 GT/sec Intel®  QPI)","$1,502","$1,502"
+"E7-4809 v3 (20M cache, 8 Cores, 16 Threads, 2.00 GHz (115W) 6.40 GT/sec Intel®  QPI)","$1,223","$1,223"
+"E7-4850 v4 (40M cache, 16 Cores, 32 Threads, 2.10 GHz (115W) 8.00 GT/sec Intel® QPI)","$3,003","$3,003"
+"E7-4830 v4 (35M cache, 14 Cores, 28 Threads, 2.00 GHz (115W) 8.00 GT/sec Intel® QPI)","$2,170","$2,170"
+"E7-4820 v4 (25M cache, 10 Cores, 20 Threads, 2.00 GHz (115W) 6.40 GT/sec Intel® QPI)","$1,502","$1,502"
+"E7-4809 v4 (20M cache, 8 Cores, 16 Threads, 2.10 GHz (115W) 6.40 GT/sec Intel® QPI)","$1,223","$1,223"
+"Intel® Xeon® processor 4600 series, 18, 16, 14, 12, 10, 8 and 6 core versions",Oct'18 (10/08),Jan'19 (01/07)
+,,
+Server/Workstation (LGA2011),Price,Price
+"E5-4669 v3 (45M cache, 18 Cores, 36 Threads, 2.10 GHz (135W) 9.60 GT/sec Intel®  QPI)","$7,007","$7,007"
+"E5-4667 v3 (40M cache, 16 Cores, 32 Threads, 2.00 GHz (135W) 9.60GT/sec Intel®  QPI)","$5,729","$5,729"
+"E5-4660 v3 (35M cache,14 Cores, 28 Threads, 2.10 GHz (120W) 9.60 GT/sec Intel®  QPI)","$4,727","$4,727"
+"E5-4650 v3 (30M cache,12 Cores, 24 Threads, 2.10 GHz (105W) 9.60 GT/sec Intel®  QPI)","$3,838","$3,838"
+"E5-4640 v3 (30M cache,12 Cores, 24 Threads, 1.90 GHz (105W) 8.00 GT/sec Intel®  QPI)","$2,859","$2,859"
+"E5-4620 v3 (25M cache,10 Cores, 20 Threads, 2.00 GHz (105W) 8.00 GT/sec Intel®  QPI)","$1,668","$1,668"
+"E5-4610 v3 (25M cache,10 Cores, 20 Threads, 1.70 GHz (105W) 6.40 GT/sec Intel®  QPI)","$1,219","$1,219"
+"E5-4655 v3 (30M cache, 6 Cores, 12 Threads, 2.90 GHz (135W) 9.60 GT/sec Intel®  QPI)","$4,616","$4,616"
+"E5-4627 v3 (25M cache,10 Cores, 20 Threads, 2.60 GHz (135W) 9.60 GT/sec Intel®  QPI)","$2,225","$2,225"
+"E5-4669 v4 (55M cache, 22 Cores, 44 Threads, 2.20 GHz (135W) 9.60 GT/sec Intel®  QPI)","$7,007","$7,007"
+"E5-4667 v4 (45M cache, 18 Cores, 36 Threads, 2.20 GHz (135W) 9.60 GT/sec Intel®  QPI)","$5,729","$5,729"
+"E5-4660 v4 (40M cache, 16 Cores, 32 Threads, 2.20 GHz (120W) 9.60 GT/sec Intel®  QPI)","$4,727","$4,727"
+"E5-4650 v4 (35M cache, 14 Cores, 28 Threads, 2.20 GHz (105W) 9.60 GT/sec Intel®  QPI)","$3,838","$3,838"
+"E5-4640 v4 (30M cache, 12 Cores, 24 Threads, 2.10 GHz (105W) 8.00 GT/sec Intel®  QPI)","$2,837","$2,837"
+"E5-4620 v4 (25M cache, 10 Cores, 20 Threads, 2.10 GHz (105W) 8.00 GT/sec Intel®  QPI)","$1,668","$1,668"
+"E5-4610 v4 (25M cache, 10 Cores, 20 Threads, 1.80 GHz (105W) 6.40 GT/sec Intel®  QPI)","$1,219","$1,219"
+"E5-4655 v4 (30M cache, 8 Cores, 16 Threads, 2.50 GHz (135W) 9.60 GT/sec Intel®  QPI)","$4,616","$4,616"
+"E5-4627 v4 (25M cache,10 Cores, 10 Threads, 2.60 GHz (135W) 8.00 GT/sec Intel®  QPI)","$2,225","$2,225"
+"Intel®  Xeon®  processor 2600 series, 22, 20, 18, 16, 14, 12, 10, 8, 6 and 4 core versions",Oct'18 (10/08),Jan'19 (01/07)
+,,
+Server/Workstation (LGA2011),Price,Price
+"E5-2699A v4 (55M cache, 22 Cores, 44 Threads, 2.40 GHz (145W) 9.60 GT/sec Intel®  QPI)","$4,938","$4,938"
+"E5-2699 v4 (55M cache, 22 Cores, 44 Threads, 2.20 GHz (145W) 9.60 GT/sec Intel®  QPI)","$4,115","$4,115"
+"E5-2698 v4 (50M cache, 20 Cores, 40 Threads, 2.20 GHz (135W) 9.60 GT/sec Intel®  QPI)","$3,226","$3,226"
+"E5-2697A v4 (40M cache, 16 Cores, 32 Threads, 2.60 GHz (145W) 9.60 GT/sec Intel®  QPI)","$2,891","$2,891"
+"E5-2697 v4 (45M cache, 18 Cores, 36 Threads, 2.30 GHz (145W) 9.60 GT/sec Intel®  QPI)","$2,702","$2,702"
+"E5-2695 v4 (45M cache, 18 Cores, 36 Threads, 2.10 GHz (120W) 9.60 GT/sec Intel®  QPI)","$2,424","$2,424"
+"E5-2683 v4 (40M cache, 16 Cores, 32 Threads, 2.10 GHz (120W) 9.60 GT/sec Intel®  QPI)","$1,846","$1,846"
+"E5-2690 v4 (35M cache, 14 Cores, 28 Threads, 2.60 GHz (135W) 9.60 GT/sec Intel®  QPI)","$2,090","$2,090"
+"E5-2680 v4 (35M cache, 14 Cores, 28 Threads, 2.40 GHz (120W) 9.60 GT/sec Intel®  QPI)","$1,745","$1,745"
+"E5-2660 v4 (35M cache, 14 Cores, 28 Threads, 2.00 GHz (105W) 9.60 GT/sec Intel®  QPI)","$1,445","$1,445"
+"E5-2650 v4 (30M cache, 12 Cores, 24 Threads, 2.20 GHz (105W) 9.60 GT/sec Intel®  QPI)","$1,166","$1,166"
+"E5-2640 v4 (25M cache, 10 Cores, 20 Threads, 2.40 GHz (90W) 8.00 GT/sec Intel®  QPI)",$939,$939
+"E5-2630 v4 (25M cache, 10 Cores, 20 Threads, 2.20 GHz (85W) 8.00 GT/sec Intel®  QPI)",$667,$667
+"E5-2620 v4 (20M cache, 8 Cores, 16 Threads, 2.10 GHz (85W) 8.00 GT/sec Intel®  QPI)",$417,$417
+"E5-2609 v4 (20M cache, 8 Cores, 8 Threads, 1.70 GHz (85W) 6.40 GT/sec Intel®  QPI)",$306,$306
+"E5-2603 v4 (15M cache, 6 Cores, 6 Threads, 1.70 GHz (85W) 6.40 GT/sec Intel®  QPI)",$213,$213
+"E5-2650L v4 (35M cache, 14 Cores, 28 Threads, 1.70 GHz (65W) 9.60 GT/sec Intel®  QPI)","$1,329","$1,329"
+"E5-2630L v4 (25M cache, 10 Cores, 20 Threads, 1.80 GHz (55W) 8.00 GT/sec Intel®  QPI)",$612,$612
+"E5-2667 v4 (25M cache, 8 Cores, 16 Threads, 3.20 GHz (135W) 9.60 GT/sec Intel®  QPI)","$2,057","$2,057"
+"E5-2643 v4 (20M cache, 6 Cores, 12 Threads, 3.40 GHz (135W) 9.60 GT/sec Intel®  QPI)","$1,552","$1,552"
+"E5-2637 v4 (15M cache, 4 Cores, 8 Threads, 3.50 GHz (135W) 9.60 GT/sec Intel®  QPI)",$996,$996
+"E5-2623 v4 (10M cache, 4 Cores, 8 Threads, 2.60 GHz (85W) 8.00 GT/sec Intel®  QPI)",$444,$444
+"E5-2687W v4 (30M cache, 12 Cores, 24 Threads, 3.00 GHz (160W) 9.60 GT/sec Intel®  QPI)","$2,141","$2,141"
+"E5-2699 v3 (45M cache, 18 Cores, 36 Threads, 2.30 GHz (145W) 9.60 GT/sec Intel®  QPI)","$4,115","$4,115"
+"E5-2698 v3 (40M cache, 16 Cores, 32 Threads, 2.30 GHz (135W) 9.60 GT/sec Intel®  QPI)","$3,226","$3,226"
+"E5-2697 v3 (35M cache, 14 Cores, 28 Threads, 2.60 GHz (145W) 9.60 GT/sec Intel®  QPI)","$2,702","$2,702"
+"E5-2695 v3 (35M cache, 14 Cores, 28 Threads, 2.30 GHz (120W) 9.60 GT/sec Intel®  QPI)","$2,424","$2,424"
+"E5-2683 v3 (35M cache, 14 Cores, 28 Threads, 2.00 GHz (120W) 9.60 GT/sec Intel®  QPI)","$1,846","$1,846"
+"E5-2680 v3 (30M cache, 12 Cores, 24 Threads, 2.50 GHz (120W) 9.60 GT/sec Intel®  QPI)","$1,745","$1,745"
+"E5-2660 v3 (25M cache, 10 Cores, 20 Threads, 2.60 GHz (105W) 9.60 GT/sec Intel®  QPI)","$1,445","$1,445"
+"E5-2640 v3 (20M cache, 8 Cores, 16 Threads, 2.60 GHz (90W) 8.00 GT/sec Intel®  QPI)",$939,$939
+"E5-2620 v3 (15M cache, 6 Cores, 12 Threads, 2.40 GHz (85W) 8.00 GT/sec Intel®  QPI)",$417,$417
+"E5-2609 v3 (15M cache, 6 Cores, 6 Threads, 1.90 GHz (85W) 6.40 GT/sec Intel®  QPI)",$306,$306
+"E5-2667 v3 (20M cache, 8 Cores, 16 Threads, 3.20 GHz (135W) 9.60 GT/sec Intel®  QPI)","$2,057","$2,057"
+"Intel® Xeon® W processor, 18, 14, 10, 8, 6 and 4 core versions",Oct'18 (10/08),Jan'19 (01/07)
+,,
+Workstation (FCLGA2066),Price,Price
+"W-2195 (24.75M cache, 18 Cores, 36 Threads, 2.30 GHz, (140W)","$2,553","$2,553"
+"W-2175 (19.25M cache, 14 Cores, 28 Threads, 2.50 GHz, (140W)","$1,947","$1,947"
+"W-2155 (13.75M cache, 10 Cores, 20 Threads, 3.30 GHz, (140W)","$1,440","$1,440"
+"W-2145 (11M cache, 8 Cores, 16 Threads, 3.70 GHz, (140W)","$1,113","$1,113"
+"W-2135 (8.25M cache, 6 Cores, 12 Threads, 3.70 GHz, (140W)",$835,$835
+"W-2133 (8.25M cache, 6 Cores, 12 Threads, 3.60 GHz, (140W)",$617,$617
+"W-2125 (8.25M cache, 4 Cores, 8 Threads, 4.00 GHz, (140W)",$444,$444
+"W-2123 (8.25M cache, 4 Cores, 8 Threads, 3.60 GHz, (140W)",$294,$294
+"Intel® Xeon® processor 1600 series, 8, 6 and 4 core versions",Oct'18 (10/08),Jan'19 (01/07)
+,,
+Server/Workstation (LGA2011-0),Price,Price
+"E5-1680 v4 (20M cache, 8 Cores, 16 Threads, 3.40 GHz (140W)","$1,723","$1,723"
+"E5-1660 v4 (20M cache, 8 Cores, 16 Threads, 3.20 GHz (140W)","$1,113","$1,113"
+"E5-1650 v4 (15M cache, 6 Cores, 12 Threads, 3.50 GHz (140W)",$617,$617
+"E5-1630 v4 (10M cache, 4 Cores, 8 Threads, 3.70 GHz (140W)",$406,$406
+"E5-1620 v4 (10M cache, 4 Cores, 8 Threads, 3.50 GHz (140W)",$294,$294
+"E5-1680 v3 (20M cache, 8 Cores, 16 Threads, 3.20 GHz (140W)","$1,723","$1,723"
+"E5-1660 v3 (20M cache, 8 Cores, 16 Threads, 3.00 GHz (140W)","$1,080","$1,080"
+"E5-1650 v3 (15M cache, 6 Cores, 12 Threads, 3.50 GHz (140W)",$583,$583
+"E5-1630 v3 (10M cache, 4 Cores, 8 Threads, 3.70 GHz (140W)",$372,$372
+"Intel® Xeon®  processor, 4  & 6 core versions",Oct'18 (10/08),Jan'19 (01/07)
+,,
+Server UP (LGA1366/1150/1151/1155/1156)/BGA1440),Price,Price
+"E-2186G (12M cache, 6 Cores, 12 Threads, 3.80 GHz (95W)",$450,$450
+"E-2176G (12M cache, 6 Cores, 12 Threads, 3.70 GHz (80W)",$362,$362
+"E-2174G (8M cache, 4 Cores, 8 Threads, 3.80 GHz (71W)",$328,$328
+"E-2146G (12M cache, 6 Cores, 12 Threads, 3.50 GHz (80W)",$311,$311
+"E-2144G (8M cache, 4 Cores, 8 Threads, 3.60 GHz (71W)",$272,$272
+"E-2136 (12M cache, 6 Cores, 12 Threads, 3.30 GHz (80W)",$284,$284
+"E-2134 (8M cache, 4 Cores, 8 Threads, 3.50 GHz (71W)",$250,$250
+"E-2126G (12M cache, 6 Cores, 6 Threads, 3.30 GHz (71W)",$255,$255
+"E-2124G (8M cache, 4 Cores, 4 Threads, 3.40 GHz (71W)",$213,$213
+"E-2124 (8M cache, 4 Cores, 4 Threads, 3.30 GHz (71W)",$193,$193
+"E3-1280 v6 (8M cache, 4 Cores, 8 Threads, 3.90 GHz (72W)",$383,$383
+"E3-1270 v6 (8M cache, 4 Cores, 8 Threads, 3.80 GHz (72W)",$328,$328
+"E3-1240 v6 (8M cache, 4 Cores, 8 Threads, 3.70 GHz (72W)",$272,$272
+"E3-1230 v6 (8M cache, 4 Cores, 8 Threads, 3.50 GHz (72W)",$250,$250
+"E3-1220 v6 (8M cache, 4 Cores, 4 Threads, 3.00 GHz (72W)",$193,$193
+"E3-1275 v6 (8M cache, 4 Cores, 8 Threads, 3.80 GHz (73W)",$339,$339
+"E3-1245 v6 (8M cache, 4 Cores, 8 Threads, 3.70 GHz (73W)",$284,$284
+"E3-1225 v6 (8M cache, 4 Cores, 4 Threads, 3.30 GHz (73W)",$213,$213
+"E3-1280 v5 (8M cache, 4 Cores, 8 Threads, 3.70 GHz (80W)",$612,$612
+"E3-1270 v5 (8M cache, 4 Cores, 8 Threads, 3.60 GHz (80W)",$328,$328
+"E3-1240 v5 (8M cache, 4 Cores, 8 Threads, 3.50 GHz (80W)",$272,$272
+"E3-1230 v5 (8M cache, 4 Cores, 8 Threads, 3.40 GHz (80W)",$250,$250
+"E3-1220 v5 (8M cache, 4 Cores, 4 Threads, 3.00 GHz (80W)",$193,$193
+"E3-1275 v5 (8M cache, 4 Cores, 8 Threads, 3.60 GHz (80W)",$339,$339
+"E3-1245 v5 (8M cache, 4 Cores, 8 Threads, 3.50 GHz (80W)",$284,$284
+"E3-1225 v5 (8M cache, 4 Cores, 4 Threads, 3.30 GHz (80W)",$213,$213
+"E3-1260L v5 (8M cache, 4 Cores, 8 Threads, 2.90 GHz (45W)",$294,$294
+"E3-1240L v5 (8M cache, 4 Cores, 8 Threads, 2.10 GHz (25W)",$278,$278
+"E3-1235L v5 (8M cache, 4 Cores, 4 Threads, 2.00 GHz (25W)",$250,$250
+"E3-1285 v4 (6M cache, 4 Cores, 8 Threads, 3.50 GHz (95W)",$556,$556
+"E3-1285L v4 (6M cache, 4 Cores, 8 Threads, 3.40 GHz (66W)",$445,$445
+"E3-1265L v4 (6M cache, 4 Cores, 8 Threads, 2.30 GHz (35W)",$417,$417
+"E3-1585 v5 (8M cache, 4 Cores, 8 Threads, 3.50 GHz (65W)",$556,$556
+"E3-1585L v5 (8M cache, 4 Cores, 8 Threads, 3.00 GHz (45W)",$445,$445
+"E3-1565L v5 (8M cache, 4 Cores, 8 Threads, 2.50 GHz (35W)",$417,$417
+"Intel® Xeon® processor, 18, 16, 12, 8, 6 and 4 core versions",Oct'18 (10/08),Jan'19 (01/07)
+,,
+"Server, Storage & Microserver (FCBGA13 & FCBGA14B)",Price,Price
+"D-2191 (24.75M cache, 18 Cores, 36 Threads, 1.60 GHz, (86W)","$2,406","$2,406"
+"D-2161I (16.5M cache, 12 Cores, 24 Threads, 2.20 GHz, (90W)",$962,$962
+"D-2141I (11M cache, 8 Cores, 16 Threads, 2.20 GHz, (65W)",$555,$555
+"D-1571 (24M cache, 16 Cores, 32 Threads, 1.30 GHz, (45W)","$1,222","$1,222"
+"D-1540 (12M cache, 8 Cores, 16 Threads, 2.00 GHz, (45W)",$581,$581
+"D-1520 (6M cache, 4 Cores, 8 Threads, 2.20 GHz (45W)",$199,$199
+"D-1541 (12M cache, 8 Cores, 16 Threads, 2.10 GHz (45W)",$581,$581
+"D-1531 (9M cache, 6 Cores, 12 Threads, 2.20 GHz (45W)",$348,$348
+"D-1521 (6M cache, 4 Cores, 8 Threads, 2.40 GHz (45W)",$199,$199
+"Intel® Xeon® processor, 8, 6 and 4 core versions",Oct'18 (10/08),Jan'19 (01/07)
+,,
+"Server, Storage & Microserver (FCBGA1667)",Price,Price
+"D-1553N (12M cache, 8 Cores, 16 Threads, 2.30 GHz, (65W)",$855,$855
+"D-1543N (12M cache, 8 Cores, 16 Threads, 1.90 GHz, (45W)",$652,$652
+"D-1533N (9M cache, 6 Cores, 12 Threads, 2.10 GHz, (45W)",$470,$470
+"D-1523N (6M cache, 4 Cores, 8 Threads, 2.00 GHz, (45W)",$256,$256
+"D-1513N (6M cache, 4 Cores, 8 Threads, 1.60 GHz, (35W)",$192,$192
+"IntelTM AtomTM processor, 8, 4, and 2 core versions Oct'18 (10/08)",Oct'18 (10/08),Jan'19 (01/07)
+,,
+"Server, Storage & Microserver (FCBGA11) Price",Price,Price
+"C3955 (16M cache, 16 Cores, 16 Threads, 2.10 GHz (31W) ",$434.00,$434
+"C3950 (16M cache, 16 Cores, 16 Threads, 1.70 GHz (24W) ",$389.00,$389
+"C3850 (12M cache, 12 Cores, 12 Threads, 2.10 GHz (24W) ",$323.00,$323
+"C3830 (12M cache, 12 Cores, 12 Threads, 1.90 GHz (20W) ",$289.00,$289
+"C3750 (16M cache, 8 Cores, 8 Threads, 2.20 GHz (20W) ",$171.00,$171
+"C3958 (16M cache, 16 Cores, 16 Threads, 2.00 GHz (31W) ",$449.00,$449
+"C3858 (12M cache, 12 Cores, 12 Threads, 2.00 GHz (25W) ",$332.00,$332
+"C3758 (16M cache, 8 Cores, 8 Threads, 2.20 GHz (25W) ",$193.00,$193
+"C3558 (8M cache, 4 Cores, 4 Threads, 2.20 GHz (16W)",$86.00,$86
+"C3538 (8M cache, 4 Cores, 4 Threads, 2.10 GHz (15W)",$75.00,$75
+"C3338 (4M cache, 2 Cores, 2 Threads, 1.50 GHz (8.5W)",$36.00,$36
+"C2750 (4M cache, 8 Cores, 8 Threads, 2.40 GHz (20W) ",$171.00,$171
+"C2730 (4M cache, 8 Cores, 8 Threads, 1.70 GHz (12W) ",$150.00,$150
+"C2550 (2M cache, 4 Cores, 4 Threads, 2.40 GHz (14W)",$86.00,$86
+"C2530 (2M cache, 4 Cores, 4 Threads, 1.70 GHz (9W)",$70.00,$70
+"C2350 (1M cache, 2 Cores, 2 Threads, 1.70 GHz (6W)",$43.00,$43
