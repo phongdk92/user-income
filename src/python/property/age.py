@@ -34,3 +34,6 @@ class Age(Property):
 
     def set_threshold(self, threshold):
         self.__threshold = threshold
+
+    def get_map_score(self):
+        return self.__score

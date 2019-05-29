@@ -161,27 +161,31 @@ def export_to_csv(filename, output, columns):
 
 if __name__ == '__main__':
     #  '2019-04-30'
-    start_date = '2019-05-21'
-    for day in range(1):
+    start_date = '2019-05-11'
+    for day in range(11):
         date = (datetime.strptime(start_date, "%Y-%m-%d") + timedelta(days=day)).strftime("%Y-%m-%d")
         print(date)
         PATH = '/home/phongdk/data_user_income_targeting/data/{}'.format(date)
         if not os.path.exists(PATH):
             os.makedirs(PATH)
 
-        filename_demography = "demography_{}.gz".format(date)
-        filename_hardware = "hardware_{}.gz".format(date)
-        filename_location = "location_{}.gz".format(date)
+        # filenames = os.listdir(PATH)
+        # newname = [x.replace("_{}".format(date), "") for x in filenames]
+        # for old, new in zip(filenames, newname):
+        #     os.rename(os.path.join(PATH, old), os.path.join(PATH, new))
+        filename_demography = "demography.gz"
+        filename_hardware = "hardware.gz"
+        filename_location = "location.gz"
 
-        filename_airline = "airline_{}.gz".format(date)
-        filename_luxury = "luxury_{}.gz".format(date)
-        filename_booking_resort = "booking_resort_{}.gz".format(date)
-        filename_booking_hotel = "booking_hotel_{}.gz".format(date)
-        filename_tour = "tour_{}.gz".format(date)
-        filename_shopping = "shopping_{}.gz".format(date)
+        filename_airline = "airline.gz"
+        filename_luxury = "luxury.gz"
+        filename_booking_resort = "booking_resort.gz"
+        filename_booking_hotel = "booking_hotel.gz"
+        filename_tour = "tour.gz"
+        filename_shopping = "shopping.gz"
 
-        filename_payment = "payment_{}.gz".format(date)
-        filename_daily_historgram = "daily_histogram_{}.gz".format(date)
+        filename_payment = "payment.gz"
+        filename_daily_historgram = "daily_histogram.gz"
 
         """EXTERNAL DATA"""
         EXTERNAL_PATH = os.path.join(os.getcwd(), "external_data", "url_properties")
@@ -194,7 +198,7 @@ if __name__ == '__main__':
         FILTER_PAYMENT = os.path.join(EXTERNAL_PATH, "shopping_payment_success")
         FILTER_DAILY_HISTORAM = os.path.join(EXTERNAL_PATH, "bad_domains_for_user_log")
 
-        # collect_user_demography_info(filename_demography, date)
+        collect_user_demography_info(filename_demography, date)
         collect_user_hardware_info(filename_hardware, date)
         collect_user_location(filename_location, date)
 
