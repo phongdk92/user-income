@@ -141,7 +141,6 @@ class Address(Property):
         self.__threshold = threshold
 
 
-
 if __name__ == '__main__':
     import pandas as pd
     CITY = ["hà nội", "hồ chí minh", "đà nẵng", "hải phòng", "cần thơ"]

@@ -13,9 +13,15 @@ class Shopping(Property):
     def __init__(self, name):
         super().__init__()
         self.__name = name
+        # self.__score = {-1: 0.0,
+        #                 0: 0.0,  # no-shopping
+        #                 1: 3.0}  # shopping
+
         self.__score = {-1: 0.0,
-                        0: 0.0,  # no-shopping
-                        1: 3.0}  # shopping
+                        0: 1.0,  # low
+                        1: 2.0,  # middle
+                        2: 3.8,  # high
+                        3: 5.0}  # luxury
 
         self.__threshold = 20
 

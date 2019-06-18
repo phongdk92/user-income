@@ -12,9 +12,15 @@ class Resort(Property):
     def __init__(self, name):
         super().__init__()
         self.__name = name
+        # self.__score = {-1: 0.0,
+        #                 0: 0.0,  # no-booking
+        #                 1: 5.0}  # booking
+
         self.__score = {-1: 0.0,
-                        0: 0.0,  # no-booking
-                        1: 5.0}  # booking
+                        0: 1.0,  # low
+                        1: 2.0,  # middle
+                        2: 3.8,  # high
+                        3: 5.0}  # luxury
 
         self.__threshold = 8
 

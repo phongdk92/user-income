@@ -8,14 +8,16 @@ Created on May 24 15:37 2019
 
 import subprocess
 import pandas as pd
-import numpy as np
 import os
 import gc
+import argparse
+import logging
 from datetime import datetime, timedelta
-from memory_saving import reduce_mem_usage
+# from memory_saving import reduce_mem_usage
 
 CONNECT_TO_AGGREGATOR = "clickhouse-client --progress --user=stats_webui " \
                         "--password=`cat /home/phongdk/.clickhouse_pw` --host=st-ch.itim.vn --query "
+LOG_DIR = "logs"
 
 
 def get_data_from_server(connect_to_server, query, external=""):
@@ -30,7 +32,7 @@ def collect_user_demography_info(filename, date):
     '''
     Only get demography info at the date since the demography prediction is accumulated 2 weeks
     '''
-    print("PROCESS : DEMOGRAPHY --- ")
+    LOGGER.info("PROCESS : DEMOGRAPHY --- ")
     query = "SELECT " \
             "toInt64(cityHash64(user_id)) as uid, " \
             "gender, " \
@@ -48,7 +50,7 @@ def collect_user_demography_info(filename, date):
 
 
 def collect_user_url_with_filter_info(filename, date, filter_urls):
-    print("PROCESS : {} --- {}".format(filename, filter_urls))
+    LOGGER.info("PROCESS : {} --- {}".format(filename, filter_urls))
     external = "--external --file {} --name='temp_url' --structure='url String'".format(filter_urls)
     query = "SELECT " \
             "toInt64(cityHash64(user_id)) as uid, " \
@@ -70,7 +72,7 @@ def collect_user_url_with_filter_info(filename, date, filter_urls):
 
 
 def collect_user_hardware_info(filename, date):
-    print("PROCESS : HARDWARE")
+    LOGGER.info("PROCESS : HARDWARE")
     query = "SELECT " \
             "toInt64(cityHash64(user_id)) as uid, " \
             "os_name, " \
@@ -94,7 +96,7 @@ def collect_user_hardware_info(filename, date):
 
 
 def collect_user_location(filename, date):
-    print("PROCESS : LOCATION")
+    LOGGER.info("PROCESS : LOCATION")
     query = "SELECT " \
             "toInt64(cityHash64(user_id)) as uid, " \
             "regions[-2] " \
@@ -113,7 +115,7 @@ def collect_user_location(filename, date):
 
 
 def collect_user_payment_success(filename, date, filter_urls):
-    print("PROCESS : --------------- PAYMENT_SUCCESS -------------------")
+    LOGGER.info("PROCESS : --------------- PAYMENT_SUCCESS -------------------")
     df = pd.read_csv(filter_urls, header=None, names=['website'])
     websites = " OR ".join(["redirect like '{}' OR request like '{}'".format(x, x) for x in df["website"].values])
     query = "SELECT " \
@@ -130,7 +132,7 @@ def collect_user_payment_success(filename, date, filter_urls):
 
 
 def collect_user_daily_histogram(filename, date, filter_urls):
-    print("PROCESS : --------------- DAILY_HISTOGRAM -------------------")
+    LOGGER.info("PROCESS : --------------- DAILY_HISTOGRAM -------------------")
     external = "--external --file {} --name='temp_url' --structure='url String'".format(filter_urls)
 
     query = "SELECT " \
@@ -151,62 +153,72 @@ def collect_user_daily_histogram(filename, date, filter_urls):
 
 
 def export_to_csv(filename, output, columns):
-    print('number of rows : {}'.format(len(output)))
+    LOGGER.info('number of rows : {}'.format(len(output)))
     df = pd.DataFrame.from_records(output)
-    print(df.head())
+    LOGGER.info(df.head())
     df.columns = columns
     # df, _ = reduce_mem_usage(df)
-    df.to_csv(os.path.join(PATH, filename), compression='gzip', index=False)
+    df.to_csv(os.path.join(DATA_PATH, filename), compression='gzip', index=False)
 
 
 if __name__ == '__main__':
-    #  '2019-04-30'
-    start_date = '2019-05-11'
-    for day in range(11):
-        date = (datetime.strptime(start_date, "%Y-%m-%d") + timedelta(days=day)).strftime("%Y-%m-%d")
-        print(date)
-        PATH = '/home/phongdk/data_user_income_targeting/data/{}'.format(date)
-        if not os.path.exists(PATH):
-            os.makedirs(PATH)
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-d", "--date", required=True, help="date to run")
+    ap.add_argument("-p", "--data_path", required=True, help="path to input folder")
 
-        # filenames = os.listdir(PATH)
-        # newname = [x.replace("_{}".format(date), "") for x in filenames]
-        # for old, new in zip(filenames, newname):
-        #     os.rename(os.path.join(PATH, old), os.path.join(PATH, new))
-        filename_demography = "demography.gz"
-        filename_hardware = "hardware.gz"
-        filename_location = "location.gz"
+    args = vars(ap.parse_args())
 
-        filename_airline = "airline.gz"
-        filename_luxury = "luxury.gz"
-        filename_booking_resort = "booking_resort.gz"
-        filename_booking_hotel = "booking_hotel.gz"
-        filename_tour = "tour.gz"
-        filename_shopping = "shopping.gz"
+    date = args['date']
+    DATA_PATH = args['data_path']
+    DATA_PATH = os.path.join(DATA_PATH, date)
 
-        filename_payment = "payment.gz"
-        filename_daily_historgram = "daily_histogram.gz"
+    if not os.path.exists(LOG_DIR):
+        os.mkdir(LOG_DIR)
+    log_filename = os.path.join(LOG_DIR, datetime.today().strftime("%Y-%m-%d.log"))
 
-        """EXTERNAL DATA"""
-        EXTERNAL_PATH = os.path.join(os.getcwd(), "external_data", "url_properties")
-        FILTER_AIRLINE = os.path.join(EXTERNAL_PATH, "10952_Airplane")
-        FILTER_LUXURY = os.path.join(EXTERNAL_PATH, "13993_Luxury")
-        FILTER_BOOKING_RESORT = os.path.join(EXTERNAL_PATH, "10960_Resort")
-        FILTER_BOOKING_HOTEL = os.path.join(EXTERNAL_PATH, "10954_10959_Hotel")
-        FILTER_TOUR = os.path.join(EXTERNAL_PATH, "10957_Tour")
-        FILTER_SHOPPING = os.path.join(EXTERNAL_PATH, "shopping")
-        FILTER_PAYMENT = os.path.join(EXTERNAL_PATH, "shopping_payment_success")
-        FILTER_DAILY_HISTORAM = os.path.join(EXTERNAL_PATH, "bad_domains_for_user_log")
+    logging.basicConfig(level=logging.INFO, filename=log_filename)
+    LOGGER = logging.getLogger("Collect data daily")
+    LOGGER.info('----' * 20 + "{}".format(datetime.today()))
 
-        collect_user_demography_info(filename_demography, date)
-        collect_user_hardware_info(filename_hardware, date)
-        collect_user_location(filename_location, date)
+    LOGGER.info(date)
+    LOGGER.info(DATA_PATH)
+    if not os.path.exists(DATA_PATH):
+        os.makedirs(DATA_PATH)
 
-        for filename, filter_data in zip([filename_airline, filename_luxury, filename_booking_resort,
-                                          filename_booking_hotel, filename_tour, filename_shopping],
-                                         [FILTER_AIRLINE, FILTER_LUXURY, FILTER_BOOKING_RESORT,
-                                          FILTER_BOOKING_HOTEL, FILTER_TOUR, FILTER_SHOPPING]):
-            collect_user_url_with_filter_info(filename, date, filter_data)
+    filename_demography = "demography.gz"
+    filename_hardware = "hardware.gz"
+    filename_location = "location.gz"
 
-        collect_user_payment_success(filename_payment, date, FILTER_PAYMENT)
-        collect_user_daily_histogram(filename_daily_historgram, date, FILTER_DAILY_HISTORAM)
+    filename_airline = "airline.gz"
+    filename_luxury = "luxury.gz"
+    filename_booking_resort = "booking_resort.gz"
+    filename_booking_hotel = "booking_hotel.gz"
+    filename_tour = "tour.gz"
+    filename_shopping = "shopping.gz"
+
+    filename_payment = "payment.gz"
+    filename_daily_historgram = "daily_histogram.gz"
+
+    """EXTERNAL DATA"""
+    EXTERNAL_PATH = os.path.join(os.getcwd(), "external_data", "url_properties")
+    FILTER_AIRLINE = os.path.join(EXTERNAL_PATH, "10952_Airplane")
+    FILTER_LUXURY = os.path.join(EXTERNAL_PATH, "13993_Luxury")
+    FILTER_BOOKING_RESORT = os.path.join(EXTERNAL_PATH, "10960_Resort")
+    FILTER_BOOKING_HOTEL = os.path.join(EXTERNAL_PATH, "10954_10959_Hotel")
+    FILTER_TOUR = os.path.join(EXTERNAL_PATH, "10957_Tour")
+    FILTER_SHOPPING = os.path.join(EXTERNAL_PATH, "shopping")
+    FILTER_PAYMENT = os.path.join(EXTERNAL_PATH, "shopping_payment_success")
+    FILTER_DAILY_HISTORAM = os.path.join(EXTERNAL_PATH, "bad_domains_for_user_log")
+
+    collect_user_demography_info(filename_demography, date)
+    collect_user_hardware_info(filename_hardware, date)
+    collect_user_location(filename_location, date)
+
+    for filename, filter_data in zip([filename_airline, filename_luxury, filename_booking_resort,
+                                      filename_booking_hotel, filename_tour, filename_shopping],
+                                     [FILTER_AIRLINE, FILTER_LUXURY, FILTER_BOOKING_RESORT,
+                                      FILTER_BOOKING_HOTEL, FILTER_TOUR, FILTER_SHOPPING]):
+        collect_user_url_with_filter_info(filename, date, filter_data)
+
+    collect_user_payment_success(filename_payment, date, FILTER_PAYMENT)
+    collect_user_daily_histogram(filename_daily_historgram, date, FILTER_DAILY_HISTORAM)
