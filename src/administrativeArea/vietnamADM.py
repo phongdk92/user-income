@@ -17,7 +17,7 @@ from sklearn.neighbors import KDTree
 from name_correction import normalize_name
 
 
-class AdministrativeArea:
+class AdministrativeArea_BruteForceSearch:
     def __init__(self, path, level=6):
         self.MIN_LAT = 8.33  # Vietnam Boundary
         self.MAX_LAT = 23.400
@@ -135,7 +135,7 @@ class AdministrativeArea:
             return normalize_name(f"{district_name}, {province_name}")
 
 
-class AdministrativeArea2:
+class AdministrativeArea_BinarySearch:    #Binary
     '''
     Using KD-Tree to find K nearest neighbors
     '''
@@ -207,7 +207,6 @@ class AdministrativeArea2:
         return 'Aboard'
 
 
-
 class AdministrativeArea_KDTree:
     '''
     Using KD-Tree to find K nearest neighbors
@@ -221,11 +220,13 @@ class AdministrativeArea_KDTree:
         self.MAX_LAT = 23.400
         self.MIN_LON = 102.074
         self.MAX_LON = 110.001
-        self.NUM_SAMPLES_CHECK = 50
-        self.MAX_DISTANCE = 0.5
+        self.NUM_SAMPLES_CHECK = 10     # check 10 nearest neighbors
+        self.MAX_DISTANCE = 0.3
         self.MIN_DISTANCE = 0
-        self.NUM_ROUND = 5
+        self.LEAF_SIZE = 40
+        # self.NUM_ROUND = 5
         self.ABOARD = "aboard"
+        self.LEVEL = level
 
         self.province_filename = os.path.join(path, 'VNM_adm1.shp')
         self.district_filename = os.path.join(path, 'VNM_adm2.shp')
@@ -238,39 +239,42 @@ class AdministrativeArea_KDTree:
         self.coordinate = []
         for (record, area) in zip(sf.records(), sf.shapes()):
             centroid_poly = Polygon(area.points).centroid.xy
-            # location_name = f'{record[8]}, {record[6]}, {record[4]}'
-            location_name = f'{record[6]}, {record[4]}'
+            if self.LEVEL == 0:
+                location_name = normalize_name(f'{record[8]}, {record[6]}, {record[4]}')
+            elif self.LEVEL == 1:
+                location_name = normalize_name(f'{record[6]}, {record[4]}')
+            else:
+                location_name = normalize_name(f'{record[4]}')
             self.coordinate.append([float(centroid_poly[0][0]), float(centroid_poly[1][0])])
             self.location.append([location_name, Polygon(area.points)])
         self.coordinate = np.array(self.coordinate)
-        self.KDTree = KDTree(self.coordinate, leaf_size=100)
-        # self.location_long_lat = sorted(self.location, key=operator.itemgetter(0, 1))  # sort by longitude, latitude
-        # self.location_lat_long = sorted(self.location, key=operator.itemgetter(1, 0))  # sort by latitude, longitude
+        self.KDTree = KDTree(self.coordinate, leaf_size=self.LEAF_SIZE)
 
     def find_address(self, latitude, longitude):
-        latitude = round(latitude, self.NUM_ROUND)
-        longitude = round(longitude, self.NUM_ROUND)
+        # latitude = round(latitude, self.NUM_ROUND)    no need to round lat,lon when using KD_Tree
+        # longitude = round(longitude, self.NUM_ROUND)
 
         if latitude > self.MAX_LAT or latitude < self.MIN_LAT or longitude > self.MAX_LON or longitude < self.MIN_LON:
             return self.ABOARD
-        
+
         point = Point(longitude, latitude)
         dist, ind = self.KDTree.query([[longitude, latitude]], k=self.NUM_SAMPLES_CHECK, sort_results=True)
+        dist, ind = dist[0], ind[0]
 
-        if dist[0][0] > self.MAX_DISTANCE:
+        if dist[0] > self.MAX_DISTANCE:
             return self.ABOARD
 
-        for i in ind[0]:  # compute distance to each commune
+        for i in ind:  # compute distance to each commune
             location = self.location[i]
             if location[-1].intersects(point):
                 return normalize_name(location[0])
 
         distances = []  # distance to contours
-        for i in ind[0]:  # compute distance to each commune
+        for i in ind:  # compute distance to each commune
             location = self.location[i]
             distances.append(point.distance(location[-1]))  # compute distance to polygon
         info = self.location[ind[np.argmin(distances)]][0]
-        return normalize_name(info)
+        return info
 
 
 if __name__ == '__main__':
@@ -279,21 +283,26 @@ if __name__ == '__main__':
     PATH = '/home/phongdk/data_user_income_targeting'
     VNM_ADM_PATH = '/home/phongdk/VNM_adm/'
     filename_location = "location_from_{}_to_{}.csv.gz".format(from_date, end_date)
-
     vn_adm2 = AdministrativeArea_KDTree(VNM_ADM_PATH)
-    # vn_adm2 = AdministrativeArea2(VNM_ADM_PATH)
-    print(vn_adm2.find_address(20.46120, 106.176))
-    print(vn_adm2.find_address(19.3724, 105.9281))
-    print(vn_adm2.find_address(17.9618, 102.626))  # Laos
-    print(vn_adm2.find_address(10.579, 107.120))  # Ba Ria - Vung Tau
-    print(vn_adm2.find_address(10.6521, 107.249))  # Ba Ria - Vung Tau
-    exit()
-    # vn_adm3 = AdministrativeArea2(os.path.join(VNM_ADM_PATH, 'VNM_adm3.shp'))
 
-    df = pd.read_csv(os.path.join(PATH, filename_location), nrows=5000)
-    df.set_index('user_id', inplace=True)
-    print('--------Finding address----------------')
-    df['address'] = df.apply(lambda x: vn_adm2.find_address(x['lat'], x['lon']), axis=1)
+    import sys
+    lat = float(sys.argv[1])
+    lon = float(sys.argv[2])
+    print(vn_adm2.find_address(lat, lon))
+    # vn_adm2 = AdministrativeArea2(VNM_ADM_PATH)
+    # print(vn_adm2.find_address(21.0278, 105.834))
+    # print(vn_adm2.find_address(20.46120, 106.176))
+    # print(vn_adm2.find_address(19.3724, 105.9281))
+    # print(vn_adm2.find_address(17.9618, 102.626))  # Laos
+    # print(vn_adm2.find_address(10.579, 107.120))  # Ba Ria - Vung Tau
+    # print(vn_adm2.find_address(10.6521, 107.249))  # Ba Ria - Vung Tau
+    # exit()
+    # # vn_adm3 = AdministrativeArea2(os.path.join(VNM_ADM_PATH, 'VNM_adm3.shp'))
+    #
+    # df = pd.read_csv(os.path.join(PATH, filename_location), nrows=5000)
+    # df.set_index('user_id', inplace=True)
+    # print('--------Finding address----------------')
+    # df['address'] = df.apply(lambda x: vn_adm2.find_address(x['lat'], x['lon']), axis=1)
     # print(df.head(15))
     # print(df.tail(15))
     # df.to_csv(os.path.join(PATH, 'address_fast.csv.gz'), compression='gzip', index=True)

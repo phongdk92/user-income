@@ -64,7 +64,8 @@ correct_dict_place = {
     "m'đrăk, đắk lắk": "m\'đrắk, đắk lắk",
     "lăk, đắk lắk": "lắk, đắk lắk",
     "bien hoa, đồng nai": "biên hòa, đồng nai",
-    "cao lanh, đồng tháp": "cao lãnh, đồng tháp"
+    "cao lanh, đồng tháp": "cao lãnh, đồng tháp",
+    "điên biên phủ, điện biên": "điện biên phủ, điện biên"
 }
 
 
@@ -72,9 +73,9 @@ def normalize_name(x):
     x = x.lower().replace(' - ', '-')  # bà rịa - vũng tàu  --> bà rịa-vũng tàu
     if 'thừa thiên-huế' in x:
         x = x.replace('-', ' ')
-    for city in ['hà nội', 'hồ chí minh', 'đà nẵng', 'hải phòng', 'cần thơ']:
-        if city in x:
-            return city
+    # for city in ['hà nội', 'hồ chí minh', 'đà nẵng', 'hải phòng', 'cần thơ']:
+    #     if city in x:
+    #         return city
     try:
         x = correct_dict_place[x]
     except:

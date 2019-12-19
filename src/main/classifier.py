@@ -19,8 +19,8 @@ import numpy as np
 import pandas as pd
 import sys
 
-sys.path.append('src/python/property')
-sys.path.append('src/python/administrativeArea')
+sys.path.append('src/property')
+sys.path.append('src/administrativeArea')
 
 import warnings
 

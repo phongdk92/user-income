@@ -22,8 +22,8 @@ import argparse
 import logging
 from datetime import datetime, timedelta
 from multiprocessing import Pool
-sys.path.append('src/python/property')
-sys.path.append('src/python/db')
+sys.path.append('src/property')
+sys.path.append('src/db')
 
 import warnings
 

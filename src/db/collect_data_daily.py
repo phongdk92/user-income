@@ -15,13 +15,19 @@ import logging
 from datetime import datetime, timedelta
 # from memory_saving import reduce_mem_usage
 
-CONNECT_TO_AGGREGATOR = "clickhouse-client --progress --user=stats_webui " \
-                        "--password=`cat /home/phongdk/.clickhouse_pw` --host=st-ch.itim.vn --query "
+CONNECT_TO_AGGREGATOR = "clickhouse-client --progress --user=stats_ads_targeting " \
+                       "--password=`cat /home/phongdk/.clickhouse_stats_pw` --host=st-ch.itim.vn --query "
+
+
+# CONNECT_TO_AGGREGATOR = "clickhouse-cli --stacktrace --host=https://ch.itim.vn --user=phongdk-stats " \
+# 			"--arg-password=`head -n 1 /home/phongdk/.clickhouse_pw` --port 443 --query "
+
 LOG_DIR = "logs"
 
 
 def get_data_from_server(connect_to_server, query, external=""):
     command = connect_to_server + "\"{}\" ".format(query) + external
+    print(command)
     output = subprocess.check_output(command, shell=True)
     output = output.decode('utf-8', errors='ignore').split('\n')
     output = [x.split('\t') for x in output]
@@ -41,7 +47,7 @@ def collect_user_demography_info(filename, date):
             "demography.prediction " \
             "WHERE " \
             "event_date = '{}' " \
-            "".format(date)
+            "GROUP BY uid, gender, age ".format(date)
     output = get_data_from_server(CONNECT_TO_AGGREGATOR, query)
     columns = ['user_id', 'gender', 'age']
     export_to_csv(filename, output, columns)
@@ -210,15 +216,36 @@ if __name__ == '__main__':
     FILTER_PAYMENT = os.path.join(EXTERNAL_PATH, "shopping_payment_success")
     FILTER_DAILY_HISTORAM = os.path.join(EXTERNAL_PATH, "bad_domains_for_user_log")
 
-    collect_user_demography_info(filename_demography, date)
-    collect_user_hardware_info(filename_hardware, date)
-    collect_user_location(filename_location, date)
+    try:
+        collect_user_demography_info(filename_demography, date)
+    except:
+        print("------------- Cannot collect data for DEMOGRAPHY -----------------")
+        LOGGER.info("------------- Cannot collect data for DEMOGRAPHY -----------------")
+
+    try:
+        collect_user_hardware_info(filename_hardware, date)
+    except:
+        LOGGER.info("------------- Cannot collect data for HARDWARE -----------------")
+
+    try:
+        collect_user_location(filename_location, date)
+    except:
+        LOGGER.info("-------------- Cannot collect data for LOCATION ----------------")
+
+    try:
+        collect_user_payment_success(filename_payment, date, FILTER_PAYMENT)
+    except:
+        LOGGER.info("-------------- Cannot collect data for PAYMENT ----------------")
+    try:
+        collect_user_daily_histogram(filename_daily_historgram, date, FILTER_DAILY_HISTORAM)
+    except:
+        LOGGER.info("-------------- Cannot collect data for HISTOGRAM ----------------")
 
     for filename, filter_data in zip([filename_airline, filename_luxury, filename_booking_resort,
                                       filename_booking_hotel, filename_tour, filename_shopping],
                                      [FILTER_AIRLINE, FILTER_LUXURY, FILTER_BOOKING_RESORT,
                                       FILTER_BOOKING_HOTEL, FILTER_TOUR, FILTER_SHOPPING]):
-        collect_user_url_with_filter_info(filename, date, filter_data)
-
-    collect_user_payment_success(filename_payment, date, FILTER_PAYMENT)
-    collect_user_daily_histogram(filename_daily_historgram, date, FILTER_DAILY_HISTORAM)
+        try:
+            collect_user_url_with_filter_info(filename, date, filter_data)
+        except:
+            LOGGER.info(f"-------------- Cannot collect data for {filename} ----------------")

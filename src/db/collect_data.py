@@ -14,7 +14,7 @@ import gc
 from datetime import datetime, timedelta
 from memory_saving import reduce_mem_usage
 
-CONNECT_TO_AGGREGATOR = "clickhouse-client --progress --user=stats_webui " \
+CONNECT_TO_AGGREGATOR = "clickhouse-client --progress --user=analyst " \
                         "--password=`cat /home/phongdk/.clickhouse_pw` --host=st-ch.itim.vn --query "
 
 

@@ -14,7 +14,7 @@ data_path=$2
 back_date=$3
 output_file=$4
 
-python src/python/main/classifier_daily.py  --date ${the_day} \
+python src/main/classifier_daily.py  --date ${the_day} \
                                             --data_path ${data_path} \
                                             --back_date ${back_date} \
                                             --output ${output_file}
