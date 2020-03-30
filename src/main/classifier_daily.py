@@ -191,26 +191,42 @@ def merge_data(list_df):
 
 def process():
     nrows = None
-    start = time.time()
-    df_daily_histogram = process_daily_histogram(DATA_PATH, filename_daily_historgram)
-    LOGGER.info(df_daily_histogram.head())
-    print("Time ------------------df_daily_histogram------------------------- {:.2f} (s)".format(time.time() - start))
-    start = time.time()
-    df_payment = process_payment(DATA_PATH, filename_payment)
-    LOGGER.info(df_payment.head())
-    print("Time ------------------df_payment------------------------- {:.2f} (s)".format(time.time() - start))
-    start = time.time()
-    df_hardware = process_hardware(DATA_PATH, filename_hardware, Device('device'), nrows=nrows)
-    LOGGER.info(df_hardware.head())
-    print("Time -------------------df_hardware------------------------ {:.2f} (s)".format(time.time() - start))
-    start = time.time()
-    df_demography = process_demography(DATA_PATH, filename_demography, [Gender('gender'), Age('age')], nrows=nrows)
-    LOGGER.info(df_demography.head())
-    print("Time -------------------df_demography------------------------ {:.2f} (s)".format(time.time() - start))
-    start = time.time()
-    df_location = process_location(DATA_PATH, filename_location, Address('address'), nrows=nrows)
-    LOGGER.info(df_location.head())
-    print("Time --------------------df_location----------------------- {:.2f} (s)".format(time.time() - start))
+    try:
+        start = time.time()
+        df_daily_histogram = process_daily_histogram(DATA_PATH, filename_daily_historgram)
+        LOGGER.info(df_daily_histogram.head())
+        print("Time ------------------df_daily_histogram------------------------- {:.2f} (s)".format(time.time() - start))
+    except:
+        df_daily_histogram = pd.DataFrame()
+    try:
+        start = time.time()
+        df_payment = process_payment(DATA_PATH, filename_payment)
+        LOGGER.info(df_payment.head())
+        print("Time ------------------df_payment------------------------- {:.2f} (s)".format(time.time() - start))
+    except:
+        df_payment = pd.DataFrame()
+    try:
+        start = time.time()
+        df_hardware = process_hardware(DATA_PATH, filename_hardware, Device('device'), nrows=nrows)
+        LOGGER.info(df_hardware.head())
+        print("Time -------------------df_hardware------------------------ {:.2f} (s)".format(time.time() - start))
+    except:
+        df_hardware = pd.DataFrame()
+
+    try:
+        start = time.time()
+        df_demography = process_demography(DATA_PATH, filename_demography, [Gender('gender'), Age('age')], nrows=nrows)
+        LOGGER.info(df_demography.head())
+        print("Time -------------------df_demography------------------------ {:.2f} (s)".format(time.time() - start))
+    except:
+        df_demography = pd.DataFrame()
+    try:
+        start = time.time()
+        df_location = process_location(DATA_PATH, filename_location, Address('address'), nrows=nrows)
+        LOGGER.info(df_location.head())
+        print("Time --------------------df_location----------------------- {:.2f} (s)".format(time.time() - start))
+    except:
+        df_location = pd.DataFrame()
     # start = time.time()
     list_df = [df_daily_histogram, df_payment, df_demography, df_hardware, df_location]
     for (filename, class_property) in zip(filename_based_url, class_property_based_url):
@@ -224,12 +240,12 @@ def process():
 
     income_classification = IncomeClassification(luxury=LUXURY_PROP, high=HIGH_PROP, middle=MIDDLE_PROP)
     df_total = income_classification.classify_income(df_total)
-    df_total = df_total[df_total['income'] > 0]     # remove low income users to save storage
+    # df_total = df_total[df_total['income'] > 0]     # remove low income users to save storage
     df_total = convert_hashID_to_browser_id(df_total)
     df_total['income'].to_csv(OUTPUT_FILENAME, compression='gzip', index=True)
     df_total.to_csv('/home/phongdk/data_user_income_targeting/score/score.gz', compression='gzip', index=True)
-    # # LOGGER.info("--- %s seconds ---" % (time.time() - start_time))
-    # # LOGGER.info("Memory usage of properties dataframe is :", df_total.memory_usage().sum() / 1024 ** 2, " MB")
+    # LOGGER.info("--- %s seconds ---" % (time.time() - start_time))
+    # LOGGER.info("Memory usage of properties dataframe is :", df_total.memory_usage().sum() / 1024 ** 2, " MB")
 
 
 if __name__ == '__main__':
@@ -240,7 +256,7 @@ if __name__ == '__main__':
     ap.add_argument("-b", "--back_date", required=False, nargs='?', help="path to model directory", const=True,
                     type=int, default=1)
     ap.add_argument("-n", "--n_jobs", required=False, nargs='?', help="number of jobs to parallel", const=True,
-                    type=int, default=32)
+                    type=int, default=24)
 
     args = vars(ap.parse_args())
     END_DATE = args['date']

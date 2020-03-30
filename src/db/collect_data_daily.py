@@ -15,13 +15,12 @@ import logging
 from datetime import datetime, timedelta
 # from memory_saving import reduce_mem_usage
 
-CONNECT_TO_AGGREGATOR = "clickhouse-client --progress --user=stats_ads_targeting " \
-                       "--password=`cat /home/phongdk/.clickhouse_stats_pw` --host=st-ch.itim.vn --query "
+# CONNECT_TO_AGGREGATOR = "clickhouse-client --progress --user=stats_ads_targeting " \
+#                        "--password=`cat /home/phongdk/.clickhouse_stats_pw` --host=st-ch.itim.vn --query "
 
 
-# CONNECT_TO_AGGREGATOR = "clickhouse-cli --stacktrace --host=https://ch.itim.vn --user=phongdk-stats " \
-# 			"--arg-password=`head -n 1 /home/phongdk/.clickhouse_pw` --port 443 --query "
-
+CONNECT_TO_AGGREGATOR = "clickhouse-cli --stacktrace --host=https://ch.itim.vn --user=phongdk-stats " \
+			"--arg-password=`head -n 1 /home/phongdk/.clickhouse_pw` --port 443 --query "
 LOG_DIR = "logs"
 
 
@@ -57,7 +56,9 @@ def collect_user_demography_info(filename, date):
 
 def collect_user_url_with_filter_info(filename, date, filter_urls):
     LOGGER.info("PROCESS : {} --- {}".format(filename, filter_urls))
-    external = "--external --file {} --name='temp_url' --structure='url String'".format(filter_urls)
+    with open(filter_urls, 'r') as f:
+        urls = tuple([line.replace("\n", "") for line in f])
+
     query = "SELECT " \
             "toInt64(cityHash64(user_id)) as uid, " \
             "event_date, " \
@@ -66,11 +67,11 @@ def collect_user_url_with_filter_info(filename, date, filter_urls):
             "browser.clickdata " \
             "WHERE " \
             "event_date = '{}' AND " \
-            "cutToFirstSignificantSubdomain(request) IN temp_url " \
+            "cutToFirstSignificantSubdomain(request) IN {} " \
             "GROUP BY event_date, uid " \
             "ORDER BY event_date, uid " \
-            "".format(date)
-    output = get_data_from_server(CONNECT_TO_AGGREGATOR, query, external)
+            "".format(date, urls)
+    output = get_data_from_server(CONNECT_TO_AGGREGATOR, query)
     columns = ['user_id', 'event_date', 'count']
     export_to_csv(filename, output, columns)
     del output
@@ -139,7 +140,8 @@ def collect_user_payment_success(filename, date, filter_urls):
 
 def collect_user_daily_histogram(filename, date, filter_urls):
     LOGGER.info("PROCESS : --------------- DAILY_HISTOGRAM -------------------")
-    external = "--external --file {} --name='temp_url' --structure='url String'".format(filter_urls)
+    with open(filter_urls, 'r') as f:
+        urls = tuple([line.replace("\n", "") for line in f])
 
     query = "SELECT " \
             "toInt64(cityHash64(user_id)) as uid, " \
@@ -148,10 +150,10 @@ def collect_user_daily_histogram(filename, date, filter_urls):
             "FROM browser.clickdata " \
             "WHERE event_date='{}' " \
             "AND transition != 255 " \
-            "AND domainWithoutWWW(request) NOT IN temp_url " \
+            "AND domainWithoutWWW(request) NOT IN {} " \
             "GROUP BY uid, hour " \
-            "ORDER BY uid, hour ".format(date)
-    output = get_data_from_server(CONNECT_TO_AGGREGATOR, query, external)
+            "ORDER BY uid, hour ".format(date, urls)
+    output = get_data_from_server(CONNECT_TO_AGGREGATOR, query)
     columns = ['user_id', 'hour', 'count']
     export_to_csv(filename, output, columns)
     del output
@@ -236,6 +238,7 @@ if __name__ == '__main__':
         collect_user_payment_success(filename_payment, date, FILTER_PAYMENT)
     except:
         LOGGER.info("-------------- Cannot collect data for PAYMENT ----------------")
+
     try:
         collect_user_daily_histogram(filename_daily_historgram, date, FILTER_DAILY_HISTORAM)
     except:

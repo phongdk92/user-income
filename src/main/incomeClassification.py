@@ -41,7 +41,7 @@ class IncomeClassification():
         income_milestones = get_milestone(df[condition]['total_score'], luxury=self.LUXURY_PROP,
                                           high=self.HIGH_PROP, middle=self.MIDDLE_PROP)
         print("MEDIUM_INCOME_SCORE : {} \nHIGH_INCOME_SOCRE: {} \nLUXURY_SCORE: {}".format(*income_milestones))
-        LOGGER.info("MEDIUM_INCOME_SCORE : {} \nHIGH_INCOME_SOCRE: {} \nLUXURY_SCORE: {}".format(*income_milestones))
+        LOGGER.info("MEDIUM_INCOME_SCORE : {} \nHIGH_INCOME_SCORE: {} \nLUXURY_SCORE: {}".format(*income_milestones))
         df['income'] = df['total_score'].apply(lambda x: classify(x, income_milestones))
         df.loc[~condition, 'income'] = 0    # those users don't satisfy condition is set to 0 though their score is high
         print('------------ Proportion Income -----------')

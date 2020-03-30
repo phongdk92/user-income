@@ -19,3 +19,6 @@ echo "Classify income for ${the_day}"
 bash bin/classify_income.sh ${the_day} ${data_path} ${back_date} ${output_file}
 
 bash bin/create_campaigns.sh ${output_file}
+
+
+#for the_day in 2019-12-{04..11}; do bash bin/dailyTask.sh ${the_day}; done
